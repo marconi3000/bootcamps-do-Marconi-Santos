@@ -157,10 +157,47 @@ Cada commit é carimbado com esses dados, tornando possível rastrear a autoria 
         git config --global --list                           # retorna todas as configurações globais
 </pre>
 
+serves para abrir o arquivo de configuração global do Git (~/.gitconfig) diretamente no editor de texto padrão do Git, 
+permitindo que você visualize e edite manualmente as configurações globais.
+
+Como funciona o --edit
+
+O Git utiliza uma variável chamada core.editor para definir qual editor será usado ao editar arquivos com git config --edit.
+
+Se você ainda não definiu um editor personalizado, o comando git config --global --edit usará o editor padrão do sistema, 
+que pode ser o vi, vim, nano, ou outro, dependendo da configuração.
+
+Ao editar e salvar o arquivo, suas alterações são imediatamente aplicadas à próxima execução de comandos Git.
+
+<pre>git config --global --edit</pre>
+
+Como sair do editor Vim
+
+Saia do modo de inserção
+
+Se estiver digitando (modo "INSERT"), pressione Esc para voltar ao modo normal.
+
+Digite o comando de saída desejado:
+
+:wq → write (salvar) e quit (sair): salva as mudanças e fecha.
+
+:q! → quit sem salvar: descarta alterações e fecha o editor.
+
+Pressione Enter para confirmar o comando.
+
+Se você não se sente confortável usando o Vim, pode configurar um editor mais amigável como Nano ou VS Code:
+
+<pre>git config --global core.editor "nano"</pre>
+# ou
+<pre>git config --global core.editor "code --wait"</pre>
+
+Após realizar a alteração no VScode é só salvar e fechar
 
 
 <pre></pre>
-
+<pre></pre>
+<pre></pre>
+<pre></pre>
 <pre></pre>
 <pre></pre>
 <pre></pre>
