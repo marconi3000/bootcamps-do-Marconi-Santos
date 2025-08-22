@@ -1,4 +1,0 @@
-Aula sobre branches
-Como realizar uma branch?
-Realizando um commit na branch teste
-Vou testar o git fetch neste arquivo.
