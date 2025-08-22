@@ -140,14 +140,79 @@ Você pode aplicar configurações em três níveis distintos:
   git config --global user.name "Seu Nome"
   git config --global user.email "seu.email@example.com"
 
-  Confira com git config --list ou git config user.name
+  Confira com git config --list 
+  git config user.name - para visualizar o nome
+  git config user.email - para visualizar o e-mail
 </pre>
 
-Escolher o editor padrão para mensagens de commit:
+Para que serve esse comando?
+
+> * O Git utiliza duas informações essenciais para identificar quem fez cada alteração em um repositório: o nome do autor (user.name) e o e-mail do autor (user.email). 
+Cada commit é carimbado com esses dados, tornando possível rastrear a autoria das alterações.
+> * O uso da flag --global faz com que essas configurações sejam aplicadas a todos os repositórios do usuário no sistema, armazenando-as no arquivo ~/.gitconfig.
+
+<pre>
+        git config init.defaultBranch                        #Retornar a branch padrão
+        git config --global init.defaultBranch main          #Para modificar para main utiliza o comando
+        git config --global --list                           # retorna todas as configurações globais
+</pre>
+
+
+
 <pre></pre>
 
-git config --global core.editor "code --wait"
+<pre></pre>
+<pre></pre>
+<pre></pre>
+<pre></pre>
+<pre></pre>
 
+Escolher o editor padrão para mensagens de commit:
+
+<pre>git config --global core.editor "code --wait"</pre>
+
+Criar aliases (atalhos) para comandos frequentes:
+
+<pre>
+        git config --global alias.ci commit
+        git config --global alias.st status
+</pre>
+
+Ajustar estilo de saída (cores):
+
+<pre>git config --global color.ui auto</pre>
+
+Isso habilita coloração na saída dos comandos Git, tornando as informações mais fáceis de ler. 
+
+
+Configurar ferramenta de merge externa:
+
+<pre>git config --global merge.tool meld</pre>
+
+Isso configura o Git para usar a ferramenta "meld" ao resolver conflitos. 
+
+Listar todas as configurações atuais:
+
+<pre>git config --list</pre>
+
+Consultar um valor específico:
+
+<pre>git config user.email</pre>
+
+Remover uma configuração:
+
+<pre>git config --global --unset alias.ci</pre>
+
+Editar o arquivo de configuração diretamente:
+
+<pre>git config --global --edit</pre>
+
+
+<pre></pre>
+<pre></pre>
+<pre></pre>
+<pre></pre>
+<pre></pre>
 <pre></pre>
 
 
@@ -236,7 +301,38 @@ git stash                 # Armazena alterações temporariamente
     
     git merge nova_branch -m"Mensagem sobre a mesclagem do branch.": Esse comando mescla a nova_branch ao master.
 
+**Atalhos nativos do Bash (funcionam no Git Bash)**
+<details><summary>Clique na setinha para expandir a explicação!</summary>
 
+                Esses atalhos facilitam a edição de linha, movimentação e histórico de comandos:
+                
+                Ctrl + A: Vai para o início da linha
+                
+                Ctrl + E: Vai para o final da linha
+                
+                Ctrl + K: Deleta do cursor até o fim da linha
+                
+                Ctrl + U: Deleta do cursor até o início da linha
+                
+                Ctrl + W: Deleta a palavra antes do cursor
+                
+                Ctrl + Y: Cola o texto deletado no cursor
+                
+                Alt + B / Alt + F: Move uma palavra para trás / para frente
+                
+                Alt + D: Deleta da posição do cursor até o fim da palavra
+                
+                Alt + C / Alt + U / Alt + L: Converte o caractere ou palavras à direita do cursor em maiúsculas / maiúsculas até o fim da palavra / minúsculas até o fim da palavra
+                
+                Ctrl + R: Busca incremental no histórico de comandos
+                
+                Ctrl + L: Limpa a tela (similar ao comando clear)
+                
+                Ctrl + C: Interrompe o comando em execução
+                
+                Tab: Completa nomes de arquivo ou comandos automaticamente
+
+</details>
 
 Setas e Símbolos Diversos
 
