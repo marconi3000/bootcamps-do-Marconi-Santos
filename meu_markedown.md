@@ -17,6 +17,10 @@ Combinação possível: \*Você \*\*pode\*\* fazer isso\* <br>
 Não ordenada: use \*, \- ou \+
 * Item A
 * Item B <br>
+  * Subitem C
+    * Subitem D <br>
+    
+Use pelo menos 2 a 4 espaços antes do * para criar um nível recuado.<br>
 Ordenada: números com ponto (1., 2.)
 1. Primeiro
 2. Segundo
