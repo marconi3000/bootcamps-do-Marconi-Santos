@@ -408,10 +408,7 @@ Escolher o editor padrão para mensagens de commit:
       git commit -m "primeiro commit"
       git remote add origin https://github.com/usuario/repositorio.git
       git push -u origin main                # envia para o repositório remoto
-      cat config                             # exibir as configurações locais do repositório Git. 
-
-      parei aqui
-                                        
+      cat config                             # exibir as configurações locais do repositório Git.                                                  
 
 1. Vá até o repositório no GitHub  
 👉 https://github.com/marconi4000/cristo_exaltado  
@@ -435,7 +432,7 @@ git clone https://github.com/marconi4000/cristo_exaltado.git nome-do-diretório 
 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
 
-<details><summary>Criando e clonando repositório</summary>
+<details><summary>Salvando alterações no repositório local</summary>
 
        mkdir nome_da_pasta                   # Criar uma pasta simples  
        mkdir pasta1 pasta2 pasta3            # Criar múltiplas pastas de uma vez
@@ -449,10 +446,32 @@ git clone https://github.com/marconi4000/cristo_exaltado.git nome-do-diretório 
                                              # Se seu branch está à frente ou atrás do remoto
        touch README.md                       # Criando o arquivo RAEDME.md
        git status                            # O arquivo RAEDME.md é um (untracked file:) sugere `git add <file>` para incluir 
-       git add README.md                     # adicionar o arquivo README.md à "staging area" do Git 
+       git add README.md                     # adicionar o arquivo README.md à "staging area" do Git.
+                                             # Essas mudanças ainda não estão no histórico do Git (isso só acontece com git commit)
+        git commit -m "first commit"         # salvar (registrar) oficialmente as alterações que estão na staging area
+        git log                              # exibir o histórico de commits do seu repositório Git — ou seja, ele mostra tudo o que já foi salvo com git commit, 
+                                             # em ordem cronológica (do mais recente para o mais antigo).
+       git status                            # A área de trabalho está limpa
 
 </details>  
 
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
+
+<details><summary>Solução para salvar diretórios vazios</summary>
+
+        mkdir minha-pasta-vazia
+        touch minha-pasta-vazia/.gitkeep                        # Solução padrão: usar um arquivo .gitkeep
+        git add minha-pasta-vazia/.gitkeep
+        git commit -m "Mantém diretório vazio com .gitkeep"
+
+
+</details> 
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<details><summary>Por que usar .gitignore?</summary>
+
+
+</details> 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
 
