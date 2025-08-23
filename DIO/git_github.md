@@ -292,6 +292,8 @@ Para repositórios já existentes, basta atualizar o remoto:
 
 ## Etapas para configurar Autenticação SSH com GitHub
 
+<details><summary>Clique na setinha para expandir a explicação!</summary>
+
 1. Verifique se você já tem uma chave SSH. No terminal (Git Bash, Terminal, etc.), rode:
 
 <pre>ls -al ~/.ssh</pre>
@@ -322,8 +324,6 @@ Copie a chave pública para o GitHub. Copie o conteúdo da chave pública:
         cat ~/.ssh/id_ed25519.pub             # Linux:
 </pre>
 
-Depois, vá para **GitHub** → **Settings** → **SSH and GPG keys** → **New SSH key**, cole o texto, dê um título e salve.
-
 Teste sua conexão SSH. No terminal, digite:
 
 <pre>ssh -T git@github.com</pre>
@@ -346,41 +346,32 @@ Escolher o editor padrão para mensagens de commit:
 
 <pre>git config --global core.editor "code --wait"</pre>
 
-Criar aliases (atalhos) para comandos frequentes:
+</details>
 
-<pre>
-        git config --global alias.ci commit
-        git config --global alias.st status
-</pre>
 
-Ajustar estilo de saída (cores):
+## Criando e clonando repositório
+<details><summary>Clique na setinha para expandir a explicação!</summary>
 
-<pre>git config --global color.ui auto</pre>
+mkdir nome_da_pasta                        # Criar uma pasta simples
+mkdir pasta1 pasta2 pasta3                 # Criar múltiplas pastas de uma vez
+mkdir projetos/react/app                   # Criar uma pasta dentro de outra (subpastas)
+mkdir -p projetos/react/app                # Criar subpastas automaticamente com -p
+cd nome_da_pasta                           # Acessar a pasta criada
+git init                                   # Cria um novo repositório Git localmente na pasta onde você executa o comando.
 
-Isso habilita coloração na saída dos comandos Git, tornando as informações mais fáceis de ler. 
+<details>
 
-Configurar ferramenta de merge externa:
-
-<pre>git config --global merge.tool meld</pre>
-
-Isso configura o Git para usar a ferramenta "meld" ao resolver conflitos. 
-
-Listar todas as configurações atuais:
-
-<pre>git config --list</pre>
-
-Consultar um valor específico:
-
-<pre>git config user.email</pre>
-
-Remover uma configuração:
-
-<pre>git config --global --unset alias.ci</pre>
-
-Editar o arquivo de configuração diretamente:
-
-<pre>git config --global --edit</pre>
-
+## O que acontece quando você roda git init?  
+<details><summary>Clique na setinha para expandir a explicação!</summary>  
+Cria uma pasta oculta chamada .git dentro da pasta atual  
+Essa pasta .git contém todos os dados e histórico de versões do repositório  
+A partir daí, você pode usar comandos como git add, git commit, git branch, git status, etc.  
+```
+mkdir meu-projeto
+cd meu-projeto
+git init
+```
+</details>
 
 <pre></pre>
 <pre></pre>
