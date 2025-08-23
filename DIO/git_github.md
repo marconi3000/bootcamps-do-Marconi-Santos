@@ -408,6 +408,7 @@ Escolher o editor padrão para mensagens de commit:
       git commit -m "primeiro commit"
       git remote add origin https://github.com/usuario/repositorio.git
       git push -u origin main                # envia para o repositório remoto
+      cat config                             # exibir as configurações locais do repositório Git. 
                                         
 
 1. Vá até o repositório no GitHub  
@@ -427,10 +428,6 @@ cd cristo_exaltado
 git clone https://github.com/marconi4000/cristo_exaltado.git nome-do-diretório    # Cria um clone de uma pasta e renomeia  
 `git remote -v`                   # Como verificar os remotes existentes    
 `git remote add origin <URL>`       # Conecta seu repositório local ao repositório remoto no GitHub (ou outro servidor Git), usando o nome `origin`.   
-
-Execute:
-
-
 
 </details>  
 
@@ -471,7 +468,75 @@ ls nome-da-pasta	# Lista os arquivos dentro de uma pasta específica
 <pre></pre>
 
 
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
 
+<details><summary>Resolvendo problema com duas contas do github no mesmo PC</summary> 
+
+Configurar sua máquina para:   
+- Usar Conta1 do GitHub com chave SSH   
+- Garantir que o repositório remoto use a autenticação correta   
+- Evitar conflitos com a Conta2   
+      
+💻 1. Verificar se você já tem chaves SSH   
+- Abra o terminal e execute: `ls ~/.ssh`     
+- Procure arquivos como: `id_rsa / id_rsa.pub`, `id_ed25519 / id_ed25519.pub` ou `id_ed25519_conta1`     
+- Se já tiver uma chave usada pela Conta2, não se preocupe — vamos criar uma nova para a Conta1.        
+     
+🔐 2. Criar uma nova chave SSH para a Conta1
+- No terminal:
+- `ssh-keygen -t ed25519 -C "seu-email-da-conta1@exemplo.com" -f ~/.ssh/id_ed25519_conta1`
+- Pressione Enter para aceitar o local sugerido
+- Pode deixar a senha em branco ou colocar uma, se quiser mais segurança
+- Isso vai criar dois arquivos:
+- `~/.ssh/id_ed25519_conta1 (chave privada)`
+- `~/.ssh/id_ed25519_conta1.pub (chave pública)`     
+              
+🧠 3. Adicionar a chave ao ssh-agent                
+- No terminal:
+- `eval "$(ssh-agent -s)"`
+- `ssh-add ~/.ssh/id_ed25519_conta1`
+            
+🧷 4. Adicionar a chave pública no GitHub (Conta1)               
+- Copie a chave pública:                
+- `cat ~/.ssh/id_ed25519_conta1.pub`                    
+- Vá para https://github.com/settings/keys                        
+- Clique em "New SSH key"                      
+- Cole a chave no campo, dê um nome (ex: Chave do meu PC) e clique em Add SSH Key              
+                         
+🛠️ 5. Configurar o arquivo SSH para múltiplas contas                    
+- Edite ou crie o arquivo de configuração SSH:
+- `ano ~/.ssh/config`
+- Adicione este bloco ao final:
+- Conta1 do GitHub                      
+```                 
+Host github-conta1                   
+    HostName github.com                 
+    User git                   
+    IdentityFile ~/.ssh/id_ed25519_conta1              
+```                        
+- Importante: Esse "apelido" github-conta1 será usado para diferenciar da outra conta.                  
+
+🌐 6. Clonar ou configurar o repositório com a Conta1                        
+- Se for clonar um repositório da Conta1:                  
+  - `git clone git@github-conta1:conta1/nome-do-repo.git`                            
+- Perceba que usamos github-conta1 em vez de github.com no início.                        
+- Se você já tem o repositório clonado, altere a URL remota:                                 
+  - `cd nome-do-repo/`
+  - `git remote set-url origin git@github-conta1:conta1/nome-do-repo.git`
+
+👤 7. Configurar nome e e-mail da Conta1 (somente neste repositório)                                  
+- `git config user.name "Seu Nome da Conta1"`                   
+- `git config user.email "seu-email-da-conta1@exemplo.com"`                       
+- Você pode confirmar com:                           
+  - `git config --list`                      
+
+✅ Agora você pode usar Git normalmente:             
+- git add .            
+- git commit -m "mensagem"             
+- git push origin main (ou a branch correta)                   
+- E tudo será feito com a Conta1, via a chave SSH correta.                         
+
+</details>
 
 
 ## **Comandos Git via Terminal Integrado**
