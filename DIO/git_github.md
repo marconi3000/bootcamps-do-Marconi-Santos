@@ -409,6 +409,8 @@ Escolher o editor padrão para mensagens de commit:
       git remote add origin https://github.com/usuario/repositorio.git
       git push -u origin main                # envia para o repositório remoto
       cat config                             # exibir as configurações locais do repositório Git. 
+
+      parei aqui
                                         
 
 1. Vá até o repositório no GitHub  
@@ -432,6 +434,27 @@ git clone https://github.com/marconi4000/cristo_exaltado.git nome-do-diretório 
 </details>  
 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
+
+<details><summary>Criando e clonando repositório</summary>
+
+       mkdir nome_da_pasta                   # Criar uma pasta simples  
+       mkdir pasta1 pasta2 pasta3            # Criar múltiplas pastas de uma vez
+       cd nome_da_pasta                      # Acessar a pasta criada
+       git init                              # inicia o repositório local
+       git status                            # mostrar o estado atual do seu repositório Git — ou seja, ele te diz:
+                                             # Se há arquivos modificados (não comitados)
+                                             # Quais arquivos estão na staging area (prontos para commit)
+                                             # Quais arquivos não estão sendo rastreados pelo Git
+                                             # Em qual branch você está
+                                             # Se seu branch está à frente ou atrás do remoto
+       touch README.md                       # Criando o arquivo RAEDME.md
+       git status                            # O arquivo RAEDME.md é um (untracked file:) sugere `git add <file>` para incluir 
+       git add README.md                     # adicionar o arquivo README.md à "staging area" do Git 
+
+</details>  
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
 
 <details><summary>O que acontece quando você roda git init?</summary>  
 Cria uma pasta oculta chamada .git dentro da pasta atual  
