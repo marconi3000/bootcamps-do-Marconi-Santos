@@ -505,7 +505,7 @@ Configurar sua máquina para:
                          
 🛠️ 5. Configurar o arquivo SSH para múltiplas contas                    
 - Edite ou crie o arquivo de configuração SSH:
-- `ano ~/.ssh/config`
+- `ano ~/.ssh/config` se não funcioonar tente `nano ~/.ssh/config`
 - Adicione este bloco ao final:
 - Conta1 do GitHub                      
 ```                 
@@ -513,8 +513,26 @@ Host github-conta1
     HostName github.com                 
     User git                   
     IdentityFile ~/.ssh/id_ed25519_conta1              
-```                        
-- Importante: Esse "apelido" github-conta1 será usado para diferenciar da outra conta.                  
+```
+- Salvar	CTRL + O → Enter     
+- Sair	        CTRL + X     
+- Importante: Esse "apelido" github-conta1 será usado para diferenciar da outra conta.
+- Testar a conexão SSH com o GitHub da Conta1. Execute este comando no terminal:
+- `ssh -T git@github-conta1`                           
+- configure o repositório local para usar o remote com o host github-conta1, assim ele usa a chave certa:
+- `git remote set-url origin git@github-conta1:conta1/nome-do-repo.git`
+- Faça um commit e tente dar push para garantir que tudo está ok:
+  - `git add .`
+  - `git commit -m "Teste de push com Conta1 configurada"`
+  - `git push origin main`
+- Se apareceu isso:
+  ```
+  Apareceu isto: ! [rejected] main -> main (fetch first) error: failed to push some refs to 'github-conta1:conta1/repo.git' hint: Updates were rejected because the remote contains work that you do not hint: have locally. This is usually caused by another repository pushing to hint: the same ref. If you want to integrate the remote changes, use hint: 'git pull' before pushing again. hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+  ```
+- Faça um pull para baixar e mesclar as mudanças do remoto: `git pull origin main --rebase`
+- O --rebase vai aplicar suas mudanças por cima das que já estão no remoto, deixando o histórico mais limpo.
+- Se der conflito, o Git vai avisar, e aí você resolve os conflitos nos arquivos e faz: `git add <arquivos-resolvidos>` e `git rebase --continue`
+- Tente novamente a flag `git push origin main`                               
 
 🌐 6. Clonar ou configurar o repositório com a Conta1                        
 - Se for clonar um repositório da Conta1:                  
