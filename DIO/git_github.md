@@ -103,11 +103,11 @@ Propriedade: atualmente é de propriedade da Microsoft (adquirida em 2018)
 |Licença/Propriedade |	Software livre e aberto	| Serviço comercial (Microsoft), com planos gratuitos e pagos|
 |Recursos extras	| Controla versões, branching, merges	| Ferramentas sociais, CI/CD, wikis, GitHub Pages|
 
-### **Instalação do Git no PC**
+## **Instalação do Git no PC**
 
 https://git-scm.com/book/pt-br/v2/Come%C3%A7ando-Instalando-o-Git
 
-### **COMANDOS INICIAIS**
+## **COMANDOS INICIAIS**
 
 <pre>
 echo "# NomeDoProjeto" >> README.md   # Cria um README inicial
@@ -119,7 +119,7 @@ git remote add origin https://github.com/seu-usuario/NomeDoProjeto.git  # Adicio
 git push -u origin main               # Envia os commits locais para o GitHub e configura o rastreamento
 </pre>
 
-### **Configurações**
+## **Configurações**
 Clique com botão direito do mouse em uma pasta que deseja vincular com o GitHub.
 E selecione a opção "Open Git Bash here"
 
@@ -135,7 +135,7 @@ Você pode aplicar configurações em três níveis distintos:
 |<pre>--global</pre>	|Afeta apenas o usuário atual	|~/.gitconfig|
 |<pre>--local</pre> (padrão)	|Afeta somente o repositório em que está usando	|.git/config|
 
-### **Definir nome de usuário e e-mail (identidade dos commits)**
+## **Definir nome de usuário e e-mail (identidade dos commits)**
 <pre>
   git config --global user.name "Seu Nome"
   git config --global user.email "seu.email@example.com"
@@ -145,7 +145,7 @@ Você pode aplicar configurações em três níveis distintos:
   git config user.email - para visualizar o e-mail
 </pre>
 
-Para que serve esse comando?
+### Para que serve esse comando?
 
 > * O Git utiliza duas informações essenciais para identificar quem fez cada alteração em um repositório: o nome do autor (user.name) e o e-mail do autor (user.email). 
 Cada commit é carimbado com esses dados, tornando possível rastrear a autoria das alterações.
@@ -160,7 +160,33 @@ Cada commit é carimbado com esses dados, tornando possível rastrear a autoria 
 serves para abrir o arquivo de configuração global do Git (~/.gitconfig) diretamente no editor de texto padrão do Git, 
 permitindo que você visualize e edite manualmente as configurações globais.
 
-Como funciona o --edit
+## Alterar o nome de usuário e e-mail globalmente
+
+<pre>
+        git config --global user.name "Seu Novo Nome"             # Isso sobrescreve os valores antigos com os novos.
+        git config --global user.email "novo-email@exemplo.com"   # Isso sobrescreve os valores antigos com os novos.
+        git config --global --list                                # para confirmar
+</pre>
+
+## Alterar para um repositório específico (configuração local)
+
+<pre>
+        git config user.name "Nome para este repo"        # afeta apenas o repositório atual e deixa o valor global intacto.
+        git config user.email "email@repo.com"            # afeta apenas o repositório atual e deixa o valor global intacto.
+</pre>
+
+## Remover configurações existentes
+
+<pre>
+        git config --global --unset user.name
+        git config --global --unset user.email
+
+        # Para remover todas as entradas duplicadas
+        git config --global --unset-all user.name
+        git config --global --unset-all user.email
+</pre>
+
+## Como funciona o --edit (Editar Manualmente)
 
 O Git utiliza uma variável chamada core.editor para definir qual editor será usado ao editar arquivos com git config --edit.
 
@@ -171,11 +197,9 @@ Ao editar e salvar o arquivo, suas alterações são imediatamente aplicadas à 
 
 <pre>git config --global --edit</pre>
 
-Como sair do editor Vim
+### Como sair do editor Vim
 
-Saia do modo de inserção
-
-Se estiver digitando (modo "INSERT"), pressione Esc para voltar ao modo normal.
+Saia do modo de inserção. Se estiver digitando (modo "INSERT"), pressione Esc para voltar ao modo normal.
 
 Digite o comando de saída desejado:
 
@@ -185,24 +209,134 @@ Digite o comando de saída desejado:
 
 Pressione Enter para confirmar o comando.
 
-Se você não se sente confortável usando o Vim, pode configurar um editor mais amigável como Nano ou VS Code:
+### Se você não se sente confortável usando o Vim, pode configurar um editor mais amigável como Nano ou VS Code:
 
 <pre>git config --global core.editor "nano"</pre>
-# ou
+#### ou
 <pre>git config --global core.editor "code --wait"</pre>
 
 Após realizar a alteração no VScode é só salvar e fechar
 
+## Token de Acesso Pessoal (PAT – Personal Access Token)
 
-<pre></pre>
-<pre></pre>
-<pre></pre>
-<pre></pre>
-<pre></pre>
-<pre></pre>
-<pre></pre>
-<pre></pre>
-<pre></pre>
+Antes de gerar um token, é importante garantir que seu endereço de e-mail esteja verificado no GitHub.
+
+* Acesse Settings (Configurações) da sua conta.
+* Vá até Emails (normalmente na seção "Access" ou similar).
+* Verifique se há algum e-mail com status “unverified” (não verificado) e clique em Resend verification email se necessário.
+
+Usando o formato fine-grained (mais seguro).
+* No GitHub, clique no seu perfil → Settings.
+* Acesse Developer settings na barra lateral.
+* Vá em Personal access tokens → Fine‑grained tokens.
+* Clique em Generate new token.
+* Preencha:
+    * Nome do token (para você identificar depois).
+    * Data de expiração.
+    * Permissões: defina quais repositórios serão acessados e quais operações são permitidas (escolha com base no menor privilégio necessário).
+* Clique em Generate token e copie imediatamente. Não será mostrado novamente.
+
+#### Usando o formato classic (mais global)
+* Vá em Settings → Developer settings → Personal access tokens → Tokens (classic).
+* Clique em Generate new token (classic).
+* Defina o nome, data de expiração e selecione scopes (como repo para acesso a repositórios privados e públicos).
+* Gere e copie o token imediatamente.
+
+### Como usar o token no Git (via HTTPS)
+
+<pre>git clone https://github.com/usuario/repositorio.git</pre>
+
+No prompt de Git: 
+* Use seu nome de usuário normal do GitHub.
+* Quando pedir a senha, cole o token no lugar.
+
+Para repositórios já existentes, basta atualizar o remoto:
+
+<pre>git remote set-url origin https://username:seu-token@github.com/usuario/repositorio.git</pre>
+
+## O que faz o credential helper?
+
+<pre>
+        git config --global credential.helper store
+
+        git config --global --show-origin credential.helper  # saber de onde uma configuração do Git está sendo lida
+        
+        git config --global credential.helper store # armazenar permanentemente suas credenciais (usuário e senha ou token) em um arquivo no seu disco, 
+        permitindo que você autentique automaticamente em operações futuras sem precisar digitar os dados toda vez.
+        
+        git config --global credential.helper "cache --timeout=3600"        # Cache por 1 hora
+
+        
+</pre>
+🧠 Saiba mais - https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage
+
+> Sem um helper configurado, o Git solicitará suas credenciais toda vez que precisar autenticar com um repositório remoto.
+> O helper automatiza esse processo, evitando a repetição e garantindo mais segurança ou conveniência, dependendo do tipo de armazenamento escolhido.
+
+
+### Por que usar um credential helper?
+
+> Além de evitar digitação repetitiva, os helpers melhoram a segurança — especialmente quando usam armazenamento criptografado,
+> como keychains ou managers do sistema. Em repositórios sensíveis, isso protege tokens ou senhas de exposição desnecessária.
+
+### Como remover ou resetar o helper?
+
+<pre>
+        git config --global --unset credential.helper        # volte a pedir suas credenciais a cada operação.
+        
+</pre>
+
+## Etapas para configurar Autenticação SSH com GitHub
+
+1. Verifique se você já tem uma chave SSH. No terminal (Git Bash, Terminal, etc.), rode:
+
+<pre>ls -al ~/.ssh</pre>
+
+Gere uma nova chave SSH (Caso não tenha). Para criar uma chave segura, prefira o algoritmo ed25519:
+
+<pre>ssh-keygen -t ed25519 -C "seu_email@exemplo.com"        # A flag -C adiciona um comentário (geralmente seu e-mail), útil para identificar a chave depois</pre>        .
+
+Se seu sistema não suportar ed25519, use RSA:
+
+<pre>ssh-keygen -t rsa -b 4096 -C "seu_email@exemplo.com"</pre>
+
+Adicione a chave SSH ao SSH-agent. Inicie o SSH agent:
+
+<pre>eval "$(ssh-agent -s)"</pre>
+
+E adicione sua chave privada gerada:
+
+ssh-add ~/.ssh/id_ed25519
+
+Se for RSA, ajusta o nome do arquivo conforme necessário.
+
+Copie a chave pública para o GitHub. Copie o conteúdo da chave pública:
+
+<pre>
+        clip < ~/.ssh/id_ed25519.pub          # Windows:
+        pbcopy < ~/.ssh/id_ed25519.pub        # macOS
+        cat ~/.ssh/id_ed25519.pub             # Linux:
+</pre>
+
+Depois, vá para **GitHub** → **Settings** → **SSH and GPG keys** → **New SSH key**, cole o texto, dê um título e salve.
+
+Teste sua conexão SSH. No terminal, digite:
+
+<pre>ssh -T git@github.com</pre>
+
+Você deverá ver algo como: Hi username! You've successfully authenticated, but GitHub does not provide shell access.
+
+Use URLs SSH em vez de HTTPS. Para clonar novos repositórios via SSH:
+
+<pre>git clone git@github.com:usuario/repositorio.git</pre>
+
+Se já tiver um remoto configurado com HTTPS, altere para SSH:
+
+<pre>git remote set-url origin git@github.com:usuario/repositorio.git</pre>
+
+Ou siga o caminho pelo link https://docs.github.com/pt/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys
+
+Se você já vir arquivos como id_rsa e id_rsa.pub — você já possui um par de chaves. Caso contrário, precisa gerar um.
 
 Escolher o editor padrão para mensagens de commit:
 
@@ -220,7 +354,6 @@ Ajustar estilo de saída (cores):
 <pre>git config --global color.ui auto</pre>
 
 Isso habilita coloração na saída dos comandos Git, tornando as informações mais fáceis de ler. 
-
 
 Configurar ferramenta de merge externa:
 
@@ -274,6 +407,16 @@ git stash                 # Armazena alterações temporariamente
 
 
 ### **COMANDOS**
+
+        mkdir nome_do_diretorio                # Criar um diretório simples
+        mkdir -p pasta/filho1/filho2           # Criar diretórios aninhados de uma só vez
+
+        touch nome_do_arquivo.ext                   # cria um arquivo vazio ou atualiza a data de modificação se ele já existir.
+        touch arquivo1.txt arquivo2.js imagem.png   # Criar múltiplos arquivos simultaneamente
+        echo "Texto inicial" > arquivo.txt          # Criar e adicionar conteúdo no mesmo comando
+        nano arquivo.txt                            # Criar e começar a editar imediatamente com o editor padrão
+        OU
+        vi arquivo.txt
 
     git commit -m"contato da mensagem de commit": Gravação de arquivo no git. Esse comando serve para enviar os arquivos no git. 
     O "-m" é referente ao termo "mensseger". Ou seja, mensagem que será gravada no commit.
