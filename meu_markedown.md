@@ -1,3 +1,4 @@
+# Como escrever no github - https://docs.github.com/pt/get-started/writing-on-github
 ## Sintaxe em Markdown
 
 Markdown é uma linguagem de formatação leve que transforma texto simples em conteúdo com estilo, como cabeçalhos, negrito, listas e links — ideal para usar em arquivos como README.md, issues, pull requests, wikis e comentários no GitHub.
