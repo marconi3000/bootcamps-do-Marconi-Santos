@@ -215,6 +215,7 @@ Após realizar a alteração no VScode é só salvar e fechar
 
 ## Token de Acesso Pessoal (PAT – Personal Access Token)
 
+<details><summary>Clique na setinha para expandir a explicação!</summary>
 Antes de gerar um token, é importante garantir que seu endereço de e-mail esteja verificado no GitHub.
 
 * Acesse Settings (Configurações) da sua conta.
@@ -252,8 +253,11 @@ Para repositórios já existentes, basta atualizar o remoto:
 
 <pre>git remote set-url origin https://username:seu-token@github.com/usuario/repositorio.git</pre>
 
+</details>
+
 ## O que faz o credential helper?
 
+<details><summary>Clique na setinha para expandir a explicação!</summary>
 <pre>
         git config --global credential.helper store
 
@@ -283,6 +287,8 @@ Para repositórios já existentes, basta atualizar o remoto:
         git config --global --unset credential.helper        # volte a pedir suas credenciais a cada operação.
         
 </pre>
+
+</details>
 
 ## Etapas para configurar Autenticação SSH com GitHub
 
