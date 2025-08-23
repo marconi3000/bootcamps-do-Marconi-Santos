@@ -1,4 +1,32 @@
-# Como escrever no github - https://docs.github.com/pt/get-started/writing-on-github
+## Abrir paleta de Emoji Windows + .
+## [README.md](https://readme.so/pt/editor)
+## Imagens  
+![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://myoctocat.com/assets/images/base-octocat.svg)
+## Como escrever no github - [Aqui](https://docs.github.com/pt/get-started/writing-on-github)
+
+## Atalhos do Teclado - [Aqui](https://docs.github.com/pt/get-started/accessibility/keyboard-shortcuts)
+
+## Alertas  
+> [!NOTE]
+[!NOTE]  
+> Useful information that users should know, even when skimming content.,
+
+> [!TIP]   
+[!TIP]  
+> Helpful advice for doing things better or more easily.
+
+> [!IMPORTANT]  
+[!IMPORTANT]  
+> Key information users need to know to achieve their goal.
+
+> [!WARNING]    
+[!WARNING]  
+> Urgent info that needs immediate user attention to avoid problems.
+
+> [!CAUTION]    
+[!CAUTION]  
+Advises about risks or negative outcomes of certain actions.  
+
 ## Sintaxe em Markdown
 
 Markdown é uma linguagem de formatação leve que transforma texto simples em conteúdo com estilo, como cabeçalhos, negrito, listas e links — ideal para usar em arquivos como README.md, issues, pull requests, wikis e comentários no GitHub.
