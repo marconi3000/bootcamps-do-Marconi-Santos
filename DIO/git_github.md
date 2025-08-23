@@ -1,12 +1,6 @@
-<details><summary>Table of content</summary>  
-
-[toc]  
-
-</details>
-
 # :octocat: *Git e GitHub* :octocat:
 ## :one: Introdução
-### **O que é git?**
+## **O que é git?**
 >O Git é um sistema de controle de versão distribuído (DVCS) que permite rastrear mudanças em arquivos de projetos, mantendo um histórico completo localmente no computador do desenvolvedor — sem necessidade de conexão com a internet ou servidor central.
 
 Características principais:
@@ -73,11 +67,10 @@ Código aberto: criado por Linus Torvalds e mantido por colaboradores (GPLv2).
     Vantagens: Controle de histórico, Trabalho em Equipe, Ramificação do projeto, Segurança, Organização.
 </details>  
 
-O que é GitHub?
+## **O que é o GitHub?**
 
-### **O que é o GitHub?**
-
-> O GitHub é uma plataforma online de hospedagem de repositórios Git, com foco em colaboração entre desenvolvedores. Permite que equipes armazenem, compartilhem e trabalhem em projetos de forma colaborativa na nuvem .
+> O GitHub é uma plataforma online de hospedagem de repositórios Git, com foco em colaboração entre desenvolvedores.
+> Permite que equipes armazenem, compartilhem e trabalhem em projetos de forma colaborativa na nuvem .
 
 Recursos úteis do GitHub:
 
@@ -120,12 +113,12 @@ git push -u origin main               # Envia os commits locais para o GitHub e 
 </pre>
 
 ## **Configurações**
-Clique com botão direito do mouse em uma pasta que deseja vincular com o GitHub.
-E selecione a opção "Open Git Bash here"
+Clique com botão direito do mouse em uma pasta que deseja vincular com o GitHub. E selecione a opção "Open Git Bash here"
 
 Digite: <pre>git config</pre>
 
-O comando git config serve para configurar o comportamento do Git, permitindo definir diversas preferências — desde sua identidade (nome e e-mail) até personalizações avançadas como aliases e temas de cores, em níveis diferentes (local, global ou de sistema).
+O comando git config serve para configurar o comportamento do Git, permitindo definir diversas preferências —  
+desde sua identidade (nome e e-mail) até personalizações avançadas como aliases e temas de cores, em níveis diferentes (local, global ou de sistema).
 
 Você pode aplicar configurações em três níveis distintos:
 
@@ -187,6 +180,7 @@ permitindo que você visualize e edite manualmente as configurações globais.
 </pre>
 
 ## Como funciona o --edit (Editar Manualmente)
+<details><summary>Clique na setinha para expandir a explicação!</summary>
 
 O Git utiliza uma variável chamada core.editor para definir qual editor será usado ao editar arquivos com git config --edit.
 
@@ -217,6 +211,8 @@ Pressione Enter para confirmar o comando.
 
 Após realizar a alteração no VScode é só salvar e fechar
 
+</details>
+
 ## Token de Acesso Pessoal (PAT – Personal Access Token)
 
 Antes de gerar um token, é importante garantir que seu endereço de e-mail esteja verificado no GitHub.
@@ -236,11 +232,13 @@ Usando o formato fine-grained (mais seguro).
     * Permissões: defina quais repositórios serão acessados e quais operações são permitidas (escolha com base no menor privilégio necessário).
 * Clique em Generate token e copie imediatamente. Não será mostrado novamente.
 
+
 #### Usando o formato classic (mais global)
 * Vá em Settings → Developer settings → Personal access tokens → Tokens (classic).
 * Clique em Generate new token (classic).
 * Defina o nome, data de expiração e selecione scopes (como repo para acesso a repositórios privados e públicos).
 * Gere e copie o token imediatamente.
+
 
 ### Como usar o token no Git (via HTTPS)
 
