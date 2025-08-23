@@ -1,73 +1,88 @@
 # :octocat: *Git e GitHub* :octocat:
-## :one: Introdução
-## **O que é git?**
->O Git é um sistema de controle de versão distribuído (DVCS) que permite rastrear mudanças em arquivos de projetos, mantendo um histórico completo localmente no computador do desenvolvedor — sem necessidade de conexão com a internet ou servidor central.
 
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+## :one: Introdução  
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<details><summary>O que é git?</summary>  
+        
+> O Git é um sistema de controle de versão distribuído (DVCS) que permite rastrear mudanças em arquivos de projetos, mantendo um histórico completo localmente no computador do desenvolvedor — sem necessidade de conexão com a internet ou servidor central.
 Características principais:
 - Controle de versão distribuído: cada desenvolvedor possui todo o histórico do projeto localmente.
 - Alta performance e suporte a fluxo não linear: criação rápida de branches, merges eficientes e navegação complexa do histórico.
 - Segurança e integridade: cada mudança é identificada por um hash (SHA‑1), garantindo que o histórico seja imutável e rastreável.
-Código aberto: criado por Linus Torvalds e mantido por colaboradores (GPLv2).
-
-*O que é um Sistema de Controle de Versão Centralizado (CVCS)?*
-<details><summary>Clique na setinha para expandir a explicação!</summary>
-        Um CVCS (Centralized Version Control System) funciona com base em um repositório central onde todas as versões dos arquivos são armazenadas. Os desenvolvedores se conectam a esse servidor para fazer checkout de versões, enviar (commit) alterações e obter updates. É um modelo típico de cliente-servidor, onde:
-    
-    - Os usuários baixam a versão mais recente do repositório central para suas máquinas.
-    - Fazem alterações localmente.
-    - Enviam (commit) essas alterações de volta ao repositório central.
-    - O servidor gerencia o histórico de versões e sincroniza os colaboradores.
-    
-    Vantagens:
-    
-    - Controle centralizado e visibilidade do que está sendo trabalhado.
-    - Curva de aprendizado mais baixa, mais fácil de configurar e usar — ideal para equipes menores e projetos simples.
-    - Bom com arquivos binários, pois não exige que cada usuário baixe todo o histórico.
-    
-    Desvantagens:
-    
-    - Ponto único de falha — se o servidor ficar offline, os commits e atualizações param.
-    - Dependência da rede: operações lentas ou travadas sem acesso ao servidor.
-    - Branching e merge costumam ser mais difíceis e propensos a conflitos.
-
-</details>
-
-*O que é um Sistema de Controle de Versão Distribuído (DVCS)?*
-<details><summary>Clique na setinha para expandir a explicação!</summary>
-        Um DVCS (Distributed Version Control System) é um sistema de versionamento em que cada desenvolvedor possui uma cópia completa do repositório, incluindo todo o histórico de commits. Isso permite trabalhar offline, fazer commits locais, criar branches de forma ágil e depois sincronizar com outros repositórios quando necessário — sem depender de um servidor central.
-    
-    Principais Vantagens:
-    
-    - Alta disponibilidade e resiliência: todo clone funciona como um backup completo.
-    - Branching e merge eficientes: ramificações são rápidas e menos propensas a conflitos.
-    - Trabalho offline: operações como commits, diffs, log e reverts são feitas localmente, sem rede.
-    
-    Importância dos DVCS hoje
-    
-    1. Redundância e backup confiável - Cada desenvolvedor possui um repositório completo com histórico. Isso significa que, mesmo diante de falhas no servidor central, qualquer máquina local pode servir como uma fonte para restaurar o repositório principal.
-    
-    2. Trabalho offline e maior produtividade - Operações como commit, diff, log e branch podem ser realizadas localmente, sem conexão com a internet, o que acelera o desenvolvimento e permite trabalhar em qualquer lugar.
-    
-    3. Branches e merges fáceis e rápidos - DVCS tornam a criação de branches leve e ágil, e os merges são feitos localmente com mais rapidez, favorecendo workflows inovadores e experimentação segura.
-    
-    4. Colaboração eficiente e escalável - Projetos open-source e equipes distribuídas se beneficiam de forma significativa: cada colaborador pode trabalhar à vontade, enviar pull requests, e mesclar alterações sem travar o fluxo de todos.
-    
-    5. Desempenho elevado - Como a maioria das tarefas é feita localmente, o desempenho é superior — commits e outras operações são instantâneos comparados aos sistemas centralizados.
-    
-    6. Traçabilidade e auditoria - É possível rastrear quem fez o quê, quando e por quê. Isso aumenta responsabilidade, facilita auditoria e manutenção de qualidade do código.
-    
-    7. Resiliência contra falhas - Sem um ponto único de falha, o ambiente de desenvolvimento se torna robusto. Mesmo que o servidor central apresente problemas, o trabalho continua normalmente localmente.
-    
-    8. Flexibilidade para workflows avançados - DVCS suportam modelos como forks, pull requests, emergentes em plataformas modernas (GitHub, GitLab etc.), facilitando revisões, CI/CD e governança distribuída.
-    
-    9. Adotado por projetos e empresas líderes - Git, o DVCS mais usado, é padrão na comunidade de código aberto e adotado em larga escala por empresas como Google e Facebook. Ferramentas como Mercurial e Bazaar também se destacam nesse ecossistema.
-    
-    10. Adoção ampla (Git como padrão de fato) - Git é hoje o sistema de controle de versão distribuído mais utilizado no mundo — estima-se que mais de 95% dos desenvolvedores o utilizem como sua ferramenta principal 
-    
-    Vantagens: Controle de histórico, Trabalho em Equipe, Ramificação do projeto, Segurança, Organização.
+Código aberto: criado por Linus Torvalds e mantido por colaboradores (GPLv2).  
+        
 </details>  
 
-## **O que é o GitHub?**
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<details><summary>O que é um Sistema de Controle de Versão Centralizado (CVCS)</summary>
+        
+> Um CVCS (Centralized Version Control System) funciona com base em um repositório central onde todas as versões dos arquivos são armazenadas. Os desenvolvedores se conectam a esse servidor para fazer checkout de versões, enviar (commit) alterações e obter updates. É um modelo típico de cliente-servidor, onde:
+    
+- Os usuários baixam a versão mais recente do repositório central para suas máquinas.
+- Fazem alterações localmente.
+- Enviam (commit) essas alterações de volta ao repositório central.
+- O servidor gerencia o histórico de versões e sincroniza os colaboradores.
+
+Vantagens:
+
+- Controle centralizado e visibilidade do que está sendo trabalhado.
+- Curva de aprendizado mais baixa, mais fácil de configurar e usar — ideal para equipes menores e projetos simples.
+- Bom com arquivos binários, pois não exige que cada usuário baixe todo o histórico.
+
+Desvantagens:
+
+- Ponto único de falha — se o servidor ficar offline, os commits e atualizações param.
+- Dependência da rede: operações lentas ou travadas sem acesso ao servidor.
+- Branching e merge costumam ser mais difíceis e propensos a conflitos.  
+
+</details>  
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<details><summary>O que é um Sistema de Controle de Versão Distribuído (DVCS)?</summary>  
+        
+> Um DVCS (Distributed Version Control System) é um sistema de versionamento em que cada desenvolvedor possui uma cópia completa do repositório, incluindo todo o histórico de commits. Isso permite trabalhar offline, fazer commits locais, criar branches de forma ágil e depois sincronizar com outros repositórios quando necessário — sem depender de um servidor central.
+    
+Principais Vantagens:
+
+- Alta disponibilidade e resiliência: todo clone funciona como um backup completo.
+- Branching e merge eficientes: ramificações são rápidas e menos propensas a conflitos.
+- Trabalho offline: operações como commits, diffs, log e reverts são feitas localmente, sem rede.
+
+Importância dos DVCS hoje
+
+1. Redundância e backup confiável - Cada desenvolvedor possui um repositório completo com histórico. Isso significa que, mesmo diante de falhas no servidor central, qualquer máquina local pode servir como uma fonte para restaurar o repositório principal.
+
+2. Trabalho offline e maior produtividade - Operações como commit, diff, log e branch podem ser realizadas localmente, sem conexão com a internet, o que acelera o desenvolvimento e permite trabalhar em qualquer lugar.
+
+3. Branches e merges fáceis e rápidos - DVCS tornam a criação de branches leve e ágil, e os merges são feitos localmente com mais rapidez, favorecendo workflows inovadores e experimentação segura.
+
+4. Colaboração eficiente e escalável - Projetos open-source e equipes distribuídas se beneficiam de forma significativa: cada colaborador pode trabalhar à vontade, enviar pull requests, e mesclar alterações sem travar o fluxo de todos.
+
+5. Desempenho elevado - Como a maioria das tarefas é feita localmente, o desempenho é superior — commits e outras operações são instantâneos comparados aos sistemas centralizados.
+
+6. Traçabilidade e auditoria - É possível rastrear quem fez o quê, quando e por quê. Isso aumenta responsabilidade, facilita auditoria e manutenção de qualidade do código.
+
+7. Resiliência contra falhas - Sem um ponto único de falha, o ambiente de desenvolvimento se torna robusto. Mesmo que o servidor central apresente problemas, o trabalho continua normalmente localmente.
+
+8. Flexibilidade para workflows avançados - DVCS suportam modelos como forks, pull requests, emergentes em plataformas modernas (GitHub, GitLab etc.), facilitando revisões, CI/CD e governança distribuída.
+
+9. Adotado por projetos e empresas líderes - Git, o DVCS mais usado, é padrão na comunidade de código aberto e adotado em larga escala por empresas como Google e Facebook. Ferramentas como Mercurial e Bazaar também se destacam nesse ecossistema.
+
+10. Adoção ampla (Git como padrão de fato) - Git é hoje o sistema de controle de versão distribuído mais utilizado no mundo — estima-se que mais de 95% dos desenvolvedores o utilizem como sua ferramenta principal 
+
+Vantagens: Controle de histórico, Trabalho em Equipe, Ramificação do projeto, Segurança, Organização.  
+
+</details>  
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<details><summary>O que é o GitHub?</summary>
 
 > O GitHub é uma plataforma online de hospedagem de repositórios Git, com foco em colaboração entre desenvolvedores.
 > Permite que equipes armazenem, compartilhem e trabalhem em projetos de forma colaborativa na nuvem .
@@ -81,10 +96,13 @@ Recursos úteis do GitHub:
 - Segurança e permissões avançadas: inclui autenticação, controle de acesso e varredura de código.
 - Recursos sociais e comunidade: wikis, social graph, feeds para facilitar colaboração e networking.
 
-Propriedade: atualmente é de propriedade da Microsoft (adquirida em 2018)
+Propriedade: atualmente é de propriedade da Microsoft (adquirida em 2018)  
 
-### **Principais diferenças**
+</details>  
 
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<details><summary>Principais diferenças</summary>
 
 |Aspecto	|Git	|GitHub|
 |:-----:|:-----:|:-----:|
@@ -95,6 +113,10 @@ Propriedade: atualmente é de propriedade da Microsoft (adquirida em 2018)
 |Interface	| CLI (ou GUI de terceiros)	| Interface web amigável, com integrados visuais|
 |Licença/Propriedade |	Software livre e aberto	| Serviço comercial (Microsoft), com planos gratuitos e pagos|
 |Recursos extras	| Controla versões, branching, merges	| Ferramentas sociais, CI/CD, wikis, GitHub Pages|
+
+</details>
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
 ## **Instalação do Git no PC**
 
@@ -179,6 +201,8 @@ permitindo que você visualize e edite manualmente as configurações globais.
         git config --global --unset-all user.email
 </pre>
 
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
 ## Como funciona o --edit (Editar Manualmente)
 <details><summary>Clique na setinha para expandir a explicação!</summary>
 
@@ -213,9 +237,12 @@ Após realizar a alteração no VScode é só salvar e fechar
 
 </details>
 
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
 ## Token de Acesso Pessoal (PAT – Personal Access Token)
 
 <details><summary>Clique na setinha para expandir a explicação!</summary>
+        
 Antes de gerar um token, é importante garantir que seu endereço de e-mail esteja verificado no GitHub.
 
 * Acesse Settings (Configurações) da sua conta.
@@ -241,7 +268,7 @@ Usando o formato fine-grained (mais seguro).
 * Gere e copie o token imediatamente.
 
 
-### Como usar o token no Git (via HTTPS)
+## Como usar o token no Git (via HTTPS)
 
 <pre>git clone https://github.com/usuario/repositorio.git</pre>
 
@@ -254,6 +281,8 @@ Para repositórios já existentes, basta atualizar o remoto:
 <pre>git remote set-url origin https://username:seu-token@github.com/usuario/repositorio.git</pre>
 
 </details>
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
 ## O que faz o credential helper?
 
@@ -276,12 +305,12 @@ Para repositórios já existentes, basta atualizar o remoto:
 > O helper automatiza esse processo, evitando a repetição e garantindo mais segurança ou conveniência, dependendo do tipo de armazenamento escolhido.
 
 
-### Por que usar um credential helper?
+## Por que usar um credential helper?
 
 > Além de evitar digitação repetitiva, os helpers melhoram a segurança — especialmente quando usam armazenamento criptografado,
 > como keychains ou managers do sistema. Em repositórios sensíveis, isso protege tokens ou senhas de exposição desnecessária.
 
-### Como remover ou resetar o helper?
+## Como remover ou resetar o helper?
 
 <pre>
         git config --global --unset credential.helper        # volte a pedir suas credenciais a cada operação.
@@ -289,6 +318,8 @@ Para repositórios já existentes, basta atualizar o remoto:
 </pre>
 
 </details>
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
 ## Etapas para configurar Autenticação SSH com GitHub
 
@@ -348,6 +379,7 @@ Escolher o editor padrão para mensagens de commit:
 
 </details>
 
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
 ## Criando e clonando repositório
 <details><summary>Clique na setinha para expandir a explicação!</summary>
@@ -361,6 +393,7 @@ git init                                   # Cria um novo repositório Git local
 
 <details>
 
+
 ## O que acontece quando você roda git init?  
 <details><summary>Clique na setinha para expandir a explicação!</summary>  
 Cria uma pasta oculta chamada .git dentro da pasta atual  
@@ -373,6 +406,9 @@ git init
 ```
 </details>
 
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+
 <pre></pre>
 <pre></pre>
 <pre></pre>
@@ -384,7 +420,7 @@ git init
 
 
 
-### **Comandos Git via Terminal Integrado**
+## **Comandos Git via Terminal Integrado**
 
 <pre>
 git init                  # Inicializa o repositório
@@ -401,7 +437,7 @@ git stash                 # Armazena alterações temporariamente
 </pre>
 
 
-### **COMANDOS**
+## **COMANDOS**
 
         mkdir nome_do_diretorio                # Criar um diretório simples
         mkdir -p pasta/filho1/filho2           # Criar diretórios aninhados de uma só vez
@@ -476,7 +512,10 @@ git stash                 # Armazena alterações temporariamente
     
     git merge nova_branch -m"Mensagem sobre a mesclagem do branch.": Esse comando mescla a nova_branch ao master.
 
-**Atalhos nativos do Bash (funcionam no Git Bash)**
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+
+## **Atalhos nativos do Bash (funcionam no Git Bash)**
 <details><summary>Clique na setinha para expandir a explicação!</summary>
 
                 Esses atalhos facilitam a edição de linha, movimentação e histórico de comandos:
@@ -508,6 +547,9 @@ git stash                 # Armazena alterações temporariamente
                 Tab: Completa nomes de arquivo ou comandos automaticamente
 
 </details>
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
 
 Setas e Símbolos Diversos
 
