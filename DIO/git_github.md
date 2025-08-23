@@ -390,9 +390,25 @@ Escolher o editor padrão para mensagens de commit:
        ls                                    # lista os arquivos e pastas do diretório atual no terminal.  
        cat                                   # cat é um comando do terminal que significa "concatenate", mas na prática é muito usado para visualizar arquivos de texto.  
        config                                # config é apenas o nome do arquivo. Pode ser qualquer arquivo de texto com esse nome.  
-       cat config 	                     # Mostra o conteúdo do arquivo config  
+       cat config                            # Mostra o conteúdo do arquivo config  
        cat .git/config                       # Mostra as configurações do repositório Git local  
        git clone <URL>                       # Copia (clona) um repositório Git que está no GitHub (ou outro servidor) para a sua máquina.  
+       cd ..                                 # Volta um nível de diretório
+       git remote add origin <URL>           # Explicando por partes: git remote: comando usado para gerenciar repositórios remotos (ex: GitHub, GitLab, Bitbucket).
+                                             # add: subcomando que adiciona um novo repositório remoto.
+                                             # origin: é o nome padrão usado para se referir ao repositório remoto. Você pode dar outro nome, mas "origin" é o mais comum.
+                                             # <URL>: é o endereço do repositório remoto (por exemplo, https://github.com/seu-usuario/seu-repo.git ou git@github.com:seu-usuario/seu-repo.git).
+                                             # liga seu repositório local ao repositório remoto, para que você possa:
+                                             # Enviar (push) suas alterações com git push origin main
+                                             # Receber (pull) atualizações com git pull origin main
+                                             # Clonar repositórios a partir desse endereço
+      Exemplo de uso completo:               
+      git init                               # inicia o repositório local
+      git add .                              # adiciona os arquivos
+      git commit -m "primeiro commit"
+      git remote add origin https://github.com/usuario/repositorio.git
+      git push -u origin main                # envia para o repositório remoto
+                                        
 
 1. Vá até o repositório no GitHub  
 👉 https://github.com/marconi4000/cristo_exaltado  
@@ -408,8 +424,9 @@ git clone https://github.com/marconi4000/cristo_exaltado.git
 5. Entre na pasta clonada:  
 cd cristo_exaltado  
 
-git clone https://github.com/marconi4000/cristo_exaltado.git nome-do-diretório    # Cria um clone de uma pasta e renomeia
-`git remote -v`                # Como verificar os remotes existentes
+git clone https://github.com/marconi4000/cristo_exaltado.git nome-do-diretório    # Cria um clone de uma pasta e renomeia  
+`git remote -v`                   # Como verificar os remotes existentes    
+`git remote add origin <URL>`       # Conecta seu repositório local ao repositório remoto no GitHub (ou outro servidor Git), usando o nome `origin`.   
 
 Execute:
 
