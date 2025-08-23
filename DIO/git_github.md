@@ -2,10 +2,6 @@
 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-## :one: Introdução  
-
-<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
-
 <details><summary>O que é git?</summary>  
         
 > O Git é um sistema de controle de versão distribuído (DVCS) que permite rastrear mudanças em arquivos de projetos, mantendo um histórico completo localmente no computador do desenvolvedor — sem necessidade de conexão com a internet ou servidor central.
@@ -118,12 +114,11 @@ Propriedade: atualmente é de propriedade da Microsoft (adquirida em 2018)
 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-## **Instalação do Git no PC**
+[Instalação do Git no PC](https://git-scm.com/book/pt-br/v2/Come%C3%A7ando-Instalando-o-Git)  
 
-https://git-scm.com/book/pt-br/v2/Come%C3%A7ando-Instalando-o-Git
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-## **COMANDOS INICIAIS**
-
+<details><summary>Comandos iniciais</summary>
 <pre>
 echo "# NomeDoProjeto" >> README.md   # Cria um README inicial
 git init                              # Inicializa o repositório local (cria pasta .git)
@@ -134,7 +129,12 @@ git remote add origin https://github.com/seu-usuario/NomeDoProjeto.git  # Adicio
 git push -u origin main               # Envia os commits locais para o GitHub e configura o rastreamento
 </pre>
 
-## **Configurações**
+</details>
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<details><summary>Configurações</summary>
+
 Clique com botão direito do mouse em uma pasta que deseja vincular com o GitHub. E selecione a opção "Open Git Bash here"
 
 Digite: <pre>git config</pre>
@@ -150,7 +150,8 @@ Você pode aplicar configurações em três níveis distintos:
 |<pre>--global</pre>	|Afeta apenas o usuário atual	|~/.gitconfig|
 |<pre>--local</pre> (padrão)	|Afeta somente o repositório em que está usando	|.git/config|
 
-## **Definir nome de usuário e e-mail (identidade dos commits)**
+**Definir nome de usuário e e-mail (identidade dos commits)**
+
 <pre>
   git config --global user.name "Seu Nome"
   git config --global user.email "seu.email@example.com"
@@ -160,7 +161,7 @@ Você pode aplicar configurações em três níveis distintos:
   git config user.email - para visualizar o e-mail
 </pre>
 
-### Para que serve esse comando?
+**Para que serve esse comando?**
 
 > * O Git utiliza duas informações essenciais para identificar quem fez cada alteração em um repositório: o nome do autor (user.name) e o e-mail do autor (user.email). 
 Cada commit é carimbado com esses dados, tornando possível rastrear a autoria das alterações.
@@ -175,7 +176,7 @@ Cada commit é carimbado com esses dados, tornando possível rastrear a autoria 
 serves para abrir o arquivo de configuração global do Git (~/.gitconfig) diretamente no editor de texto padrão do Git, 
 permitindo que você visualize e edite manualmente as configurações globais.
 
-## Alterar o nome de usuário e e-mail globalmente
+**Alterar o nome de usuário e e-mail globalmente**
 
 <pre>
         git config --global user.name "Seu Novo Nome"             # Isso sobrescreve os valores antigos com os novos.
@@ -183,14 +184,14 @@ permitindo que você visualize e edite manualmente as configurações globais.
         git config --global --list                                # para confirmar
 </pre>
 
-## Alterar para um repositório específico (configuração local)
+**Alterar para um repositório específico (configuração local)**  
 
 <pre>
         git config user.name "Nome para este repo"        # afeta apenas o repositório atual e deixa o valor global intacto.
         git config user.email "email@repo.com"            # afeta apenas o repositório atual e deixa o valor global intacto.
 </pre>
 
-## Remover configurações existentes
+**Remover configurações existentes**  
 
 <pre>
         git config --global --unset user.name
@@ -199,12 +200,13 @@ permitindo que você visualize e edite manualmente as configurações globais.
         # Para remover todas as entradas duplicadas
         git config --global --unset-all user.name
         git config --global --unset-all user.email
-</pre>
+</pre>  
 
-<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+</details>
 
-## Como funciona o --edit (Editar Manualmente)
-<details><summary>Clique na setinha para expandir a explicação!</summary>
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
+
+<details><summary>Como funciona o --edit (Editar Manualmente)</summary>
 
 O Git utiliza uma variável chamada core.editor para definir qual editor será usado ao editar arquivos com git config --edit.
 
@@ -239,9 +241,8 @@ Após realizar a alteração no VScode é só salvar e fechar
 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-## Token de Acesso Pessoal (PAT – Personal Access Token)
 
-<details><summary>Clique na setinha para expandir a explicação!</summary>
+<details><summary>Token de Acesso Pessoal (PAT – Personal Access Token)</summary>
         
 Antes de gerar um token, é importante garantir que seu endereço de e-mail esteja verificado no GitHub.
 
@@ -280,24 +281,22 @@ Para repositórios já existentes, basta atualizar o remoto:
 
 <pre>git remote set-url origin https://username:seu-token@github.com/usuario/repositorio.git</pre>
 
-</details>
+</details>  
 
-<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
 
-## O que faz o credential helper?
-
-<details><summary>Clique na setinha para expandir a explicação!</summary>
+<details><summary>O que faz o credential helper?</summary>
 <pre>
-        git config --global credential.helper store
+        
+git config --global credential.helper store
 
-        git config --global --show-origin credential.helper  # saber de onde uma configuração do Git está sendo lida
-        
-        git config --global credential.helper store # armazenar permanentemente suas credenciais (usuário e senha ou token) em um arquivo no seu disco, 
-        permitindo que você autentique automaticamente em operações futuras sem precisar digitar os dados toda vez.
-        
-        git config --global credential.helper "cache --timeout=3600"        # Cache por 1 hora
+git config --global --show-origin credential.helper  # saber de onde uma configuração do Git está sendo lida
 
-        
+git config --global credential.helper store # armazenar permanentemente suas credenciais (usuário e senha ou token) em um arquivo no seu disco, 
+permitindo que você autentique automaticamente em operações futuras sem precisar digitar os dados toda vez.
+
+git config --global credential.helper "cache --timeout=3600"        # Cache por 1 hora  
+
 </pre>
 🧠 Saiba mais - https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage
 
@@ -305,25 +304,24 @@ Para repositórios já existentes, basta atualizar o remoto:
 > O helper automatiza esse processo, evitando a repetição e garantindo mais segurança ou conveniência, dependendo do tipo de armazenamento escolhido.
 
 
-## Por que usar um credential helper?
+**Por que usar um credential helper?**
 
 > Além de evitar digitação repetitiva, os helpers melhoram a segurança — especialmente quando usam armazenamento criptografado,
 > como keychains ou managers do sistema. Em repositórios sensíveis, isso protege tokens ou senhas de exposição desnecessária.
 
-## Como remover ou resetar o helper?
+**Como remover ou resetar o helper?**
 
 <pre>
         git config --global --unset credential.helper        # volte a pedir suas credenciais a cada operação.
         
-</pre>
+</pre>  
 
 </details>
 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-## Etapas para configurar Autenticação SSH com GitHub
 
-<details><summary>Clique na setinha para expandir a explicação!</summary>
+<details><summary>Etapas para configurar Autenticação SSH com GitHub</summary>
 
 1. Verifique se você já tem uma chave SSH. No terminal (Git Bash, Terminal, etc.), rode:
 
@@ -375,14 +373,13 @@ Se você já vir arquivos como id_rsa e id_rsa.pub — você já possui um par d
 
 Escolher o editor padrão para mensagens de commit:
 
-<pre>git config --global core.editor "code --wait"</pre>
+<pre>git config --global core.editor "code --wait"</pre>  
 
-</details>
+</details>  
 
-<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
 
-## Criando e clonando repositório
-<details><summary>Clique na setinha para expandir a explicação!</summary>
+<details><summary>Criando e clonando repositório</summary>
 
 mkdir nome_da_pasta                        # Criar uma pasta simples
 mkdir pasta1 pasta2 pasta3                 # Criar múltiplas pastas de uma vez
@@ -393,9 +390,9 @@ git init                                   # Cria um novo repositório Git local
 
 <details>
 
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
 
-## O que acontece quando você roda git init?  
-<details><summary>Clique na setinha para expandir a explicação!</summary>  
+<details><summary>O que acontece quando você roda git init?</summary>  
 Cria uma pasta oculta chamada .git dentro da pasta atual  
 Essa pasta .git contém todos os dados e histórico de versões do repositório  
 A partir daí, você pode usar comandos como git add, git commit, git branch, git status, etc.  
