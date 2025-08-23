@@ -381,18 +381,18 @@ Escolher o editor padrão para mensagens de commit:
 
 <details><summary>Criando e clonando repositório</summary>  
 
-        `mkdir nome_da_pasta`                  # Criar uma pasta simples  
-        `mkdir pasta1 pasta2 pasta3`           # Criar múltiplas pastas de uma vez  
-       `mkdir projetos/react/app`              # Criar uma pasta dentro de outra (subpastas)  
-       `mkdir -p projetos/react/app`           # Criar subpastas automaticamente com -p  
-        `cd nome_da_pasta`                     # Acessar a pasta criada  
-        `git init`                             # Cria um novo repositório Git localmente na pasta onde você executa o comando.  
-        `ls`                                   # lista os arquivos e pastas do diretório atual no terminal.  
-        `cat`                                  # cat é um comando do terminal que significa "concatenate", mas na prática é muito usado para visualizar arquivos de texto.  
-        `config`                               # config é apenas o nome do arquivo. Pode ser qualquer arquivo de texto com esse nome.  
-        `cat config`	                       # Mostra o conteúdo do arquivo config  
-        `cat .git/config`	               # Mostra as configurações do repositório Git local  
-        `git clone <URL>`                      # Copia (clona) um repositório Git que está no GitHub (ou outro servidor) para a sua máquina.  
+       mkdir nome_da_pasta                   # Criar uma pasta simples  
+       mkdir pasta1 pasta2 pasta3            # Criar múltiplas pastas de uma vez  
+       mkdir projetos/react/app              # Criar uma pasta dentro de outra (subpastas)  
+       mkdir -p projetos/react/app           # Criar subpastas automaticamente com -p  
+       cd nome_da_pasta                      # Acessar a pasta criada  
+       git init                              # Cria um novo repositório Git localmente na pasta onde você executa o comando.  
+       ls                                    # lista os arquivos e pastas do diretório atual no terminal.  
+       cat                                   # cat é um comando do terminal que significa "concatenate", mas na prática é muito usado para visualizar arquivos de texto.  
+       config                                # config é apenas o nome do arquivo. Pode ser qualquer arquivo de texto com esse nome.  
+       cat config 	                     # Mostra o conteúdo do arquivo config  
+       cat .git/config                       # Mostra as configurações do repositório Git local  
+       git clone <URL>                       # Copia (clona) um repositório Git que está no GitHub (ou outro servidor) para a sua máquina.  
 
 1. Vá até o repositório no GitHub  
 👉 https://github.com/marconi4000/cristo_exaltado  
