@@ -645,9 +645,78 @@ Host github-conta1
 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
 
+<details><summary>Resolvendo problema com duas contas do github no mesmo PC</summary> 
+        
+
+        rm -rf <arquivo> ou <pasta>                 # apagar arquivos e pastas sem pedir confirmação
+        git restore nome-do-arquivo                 # voltar para a versão anterior (do último commit)
+        git restore .                               # Desfazer várias alterações de uma vez
+        git restore --staged arquivo.txt            # Retirar arquivos da staging area (desfazer o git add)
+        git commit --amend -m "Nova mensagem"       # editar o último commit feito no Git.
+        git commit --amend                          # editar o último commit feito no Git.
+                                                    # Corrigir a mensagem do commit anterior	
+                                                    # Abre o editor para você escrever uma nova
+                                                    # 📂 Adicionar arquivos esquecidos no commit anterior
+                                                    # Junta os arquivos ao commit já feito
+                                                    # 🧹 Corrigir um commit logo após tê-lo feito (sem criar um novo)	
+                                                    # Substitui o commit anterior
+        git reset --soft <hash-do-commit>           # Voltar o ponteiro do HEAD e da branch atual para um commit anterior, mantendo os arquivos no stage (index).
+                                                    # Ele desfaz commits mais recentes, mas: Mantém suas alterações; Mantém os arquivos já preparados para commit (staged)
+                                                
+Exemplo prático:            
+Imagine o seguinte histórico de commits:                  
+`A - B - C - D  ← HEAD (main)`                  
+Você quer voltar para o commit B, e "desfazer" C e D, mas não quer perder o conteúdo dessas mudanças.                    
+Você roda:                                 
+`git reset --soft <hash-do-commit-B>`                 
+O que acontece:               
+O ponteiro HEAD volta para B              
+Os commits C e D saem do histórico                                         
+As mudanças de C e D ficam como se estivessem prontas para commit (staged)                     
+🎯 Quando usar --soft?                         
+- Quando você quer reescrever os últimos commits                       
+- Quando comitou antes da hora                                                     
+- Quando quer juntar vários commits em um só (com git commit --amend depois)
+
+        git log                                     # lista de todos os commits
+        git reset --mixed <hash-do-commit>          # é usado para voltar o seu repositório local para um commit anterior,
+                                                    # removendo os commits mais recentes, sem apagar os arquivos modificados.
+                                                    # Move o ponteiro da branch (HEAD) para o commit indicado
+                                                    # Remove os commits posteriores
+                                                    # Mantém as alterações feitas nos arquivos, mas retira elas da staging area
+                                                    # Desfazer os commits, mas continuar com as alterações nos arquivos, só que ainda não prontas para commit.
+
+Exemplo prático:
+Imagine o seguinte histórico de commits:
+A -- B -- C -- D  ← HEAD (main)
+Se você rodar:
+`git reset --mixed B`
+O que acontece:
+O ponteiro HEAD volta para o commit B
+Os commits C e D são removidos do histórico local
+As alterações feitas em C e D:
+Permanecem nos arquivos
+Estão fora da staging area (como se você tivesse editado os arquivos, mas não dado git add)
+🎯 Quando usar git reset --mixed?
+- Quando você cometeu várias mudanças, mas quer reorganizar os commits
+- Quando cometeu algo errado e quer refazer o commit, mantendo as alterações
+- Quando quer "descomitar", mas não perder os arquivos modificados
+
+
+                git reflog                        # ver todo o histórico de movimentações do HEAD — ou seja,
+                                                  # acompanhar tudo que aconteceu no seu repositório local, incluindo commits, resets, merges, checkouts, etc.
+
+Recuperar commits perdidos
+Você cometeu um erro com `git reset --hard`, `git checkout`, ou deletou uma branch?
+Use `git reflog` para ver os commits anteriores e voltar para eles.
+
+        `git restore --staged diretorio/arquivo.md`        # remover um arquivo da staging area (index) — ou seja, desfazer um git add.
+                                                           # tirar um arquivo da preparação para commit, mas sem apagar as alterações que você fez nele.
+                                                           
 
 
 
+</details>
 parei aqui
 
 ## **Comandos Git via Terminal Integrado**
@@ -678,6 +747,12 @@ git stash                 # Armazena alterações temporariamente
         nano arquivo.txt                            # Criar e começar a editar imediatamente com o editor padrão
         OU
         vi arquivo.txt
+
+        git log	Ver todos os commits com detalhes
+        git log --oneline	                    # Ver uma lista resumida
+        git log --stat	                            # Ver quais arquivos mudaram em cada commit
+        git log --graph --oneline --all	            # Ver o histórico em forma de árvore
+        
 
     git commit -m"contato da mensagem de commit": Gravação de arquivo no git. Esse comando serve para enviar os arquivos no git. 
     O "-m" é referente ao termo "mensseger". Ou seja, mensagem que será gravada no commit.
@@ -779,6 +854,18 @@ git stash                 # Armazena alterações temporariamente
 </details>
 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+Atalhos do teclado
+Negrito	                                Ctrl + B	
+Itálico	                                Ctrl + I	
+Riscado	                                Alt + Shift + 5	
+Código em linha	                        Ctrl + E	
+Bloco de código	                        Ctrl + Shift + E	
+Lista ordenada	                        Ctrl + Shift + 7	
+Lista com marcadores	                Ctrl + Shift + 8	
+Citação (>)	                        Ctrl + Shift + 9	
+Link [texto](url)	                Ctrl + K	
+Visualizar Markdown (Preview tab)	Ctrl + Shift + P	
 
 
 Setas e Símbolos Diversos
