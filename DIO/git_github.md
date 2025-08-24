@@ -518,8 +518,15 @@ touch resumos/resumo-aula1.md
         > sobrescreve o arquivo - apagar tudo e deixar só texto/
         >> Se quiser adicionar a linha sem apagar o que já existe, use >> (duas setas): `echo texto/ >> .gitignore`
 
-
-
+        mkdir texto
+        echo texto/ > .gitignore        # cria (ou sobrescreve) o arquivo .gitignore com o conteúdo: `texto/`
+                                        # o Git vai ignorar a pasta chamada texto/ (ou qualquer pasta com esse nome no projeto)
+                                        # > sobrescreve o arquivo
+        echo texto/ >> .gitignore       # >> adicionar a linha sem apagar o que já existe
+        echo > .gitignore               # Se o arquivo .gitignore não existia, ele será criado vazio. 
+                                        # Se o arquivo já existia, seu conteúdo será apagado e ele ficará completamente em branco
+        cat .gitignore                  # checar o que tem no arquivo
+                                          
 </details> 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
@@ -547,17 +554,6 @@ ls -lh	                # Mostra tamanho de arquivos de forma legível (KB, MB, e
 ls nome-da-pasta	# Lista os arquivos dentro de uma pasta específica
 
 </details>
-
-<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
-
-
-<pre></pre>
-<pre></pre>
-<pre></pre>
-<pre></pre>
-<pre></pre>
-<pre></pre>
-
 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
 
@@ -649,11 +645,7 @@ Host github-conta1
 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
 
-<details><summary>Por que usar .gitignore?</summary> 
 
-        
-
-</details>
 
 
 parei aqui
