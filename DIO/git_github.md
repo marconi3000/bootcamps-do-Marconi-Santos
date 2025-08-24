@@ -468,7 +468,56 @@ git clone https://github.com/marconi4000/cristo_exaltado.git nome-do-diretório 
 </details> 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-<details><summary>Por que usar .gitignore?</summary>
+<details><summary>Por que usar .gitignore?</summary>                   
+
+O .gitignore é um arquivo de texto onde você escreve quais arquivos ou pastas o Git deve ignorar — ou seja, não rastrear, não adicionar e não fazer commit.                 
+- Ele é essencial para evitar que você envie arquivos desnecessários, grandes ou sensíveis para o seu repositório.                 
+Em um projeto real, você geralmente tem arquivos que não devem ir para o repositório, como:                 
+- Arquivos temporários ou de cache                 
+- Configurações locais (ex: senhas, chaves de API)                
+- Dependências geradas automaticamente               
+- Arquivos do seu editor (ex: .vscode/, .DS_Store no macOS)               
+`touch .gitignore`       # criar se estiver usando Git Bash                   
+Criar manualmente:                   
+- Clique com o botão direito na pasta do projeto                  
+- Vá em Novo > Documento de Texto                      
+- Renomeie para .gitignore (sem extensão .txt!)                   
+- Editar o .gitignore e adicionar os itens a ignorar                   
+```                 
+# Ignorar cache do Python             
+__pycache__/             
+
+# Ignorar logs temporários           
+logs/           
+
+# Ignorar configurações do VS Code              
+.vscode/           
+
+# Ignorar arquivos com senhas              
+config.env               
+
+# Ignorar arquivos de resultado automático            
+resultado.txt            
+```
+- Verificar com git status                    
+- Se o Git ainda estiver rastreando arquivos que deveriam ser ignorados.                   
+- Isso acontece se você já adicionou esses arquivos antes de criar o .gitignore. Para corrigir:                  
+- `git rm --cached config.env resultado.txt -r`                
+- Depois: `git commit -m "Remove arquivos que agora estão no .gitignore"`               
+- Agora, os arquivos ignorados não serão mais comitados                
+- Você pode usar git add . e git commit -m "mensagem" tranquilamente — o Git só vai adicionar o que não está no .gitignore.
+
+---
+
+mkdir resumos
+touch resumos/resumo-aula1.md
+`echo resumos/ > .gitignore` # "ignore a pasta resumos/ e tudo que estiver nela"
+  - Ele cria (ou sobrescreve) o arquivo .gitignore com o conteúdo: `texto/`
+  - Ou seja, o Git vai ignorar a pasta chamada `texto/` (ou qualquer pasta com esse nome no projeto).
+  - O Git vai ignorar tudo que estiver dentro da pasta texto/.
+        > sobrescreve o arquivo - apagar tudo e deixar só texto/
+        >> Se quiser adicionar a linha sem apagar o que já existe, use >> (duas setas): `echo texto/ >> .gitignore`
+
 
 
 </details> 
@@ -598,6 +647,16 @@ Host github-conta1
 
 </details>
 
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
+
+<details><summary>Por que usar .gitignore?</summary> 
+
+        
+
+</details>
+
+
+parei aqui
 
 ## **Comandos Git via Terminal Integrado**
 
