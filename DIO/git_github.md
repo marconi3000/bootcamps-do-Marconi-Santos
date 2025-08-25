@@ -645,7 +645,7 @@ Host github-conta1
 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
 
-<details><summary>Resolvendo problema com duas contas do github no mesmo PC</summary> 
+<details><summary>Desfazendo alterações no repositório local</summary> 
         
 
         rm -rf <arquivo> ou <pasta>                 # apagar arquivos e pastas sem pedir confirmação
@@ -653,8 +653,7 @@ Host github-conta1
         git restore .                               # Desfazer várias alterações de uma vez
         git restore --staged arquivo.txt            # Retirar arquivos da staging area (desfazer o git add)
         git commit --amend -m "Nova mensagem"       # editar o último commit feito no Git.
-        git commit --amend                          # editar o último commit feito no Git.
-                                                    # Corrigir a mensagem do commit anterior	
+        git commit --amend                          # Corrigir a mensagem do commit anterior	
                                                     # Abre o editor para você escrever uma nova
                                                     # 📂 Adicionar arquivos esquecidos no commit anterior
                                                     # Junta os arquivos ao commit já feito
@@ -713,7 +712,11 @@ Use `git reflog` para ver os commits anteriores e voltar para eles.
         `git restore --staged diretorio/arquivo.md`        # remover um arquivo da staging area (index) — ou seja, desfazer um git add.
                                                            # tirar um arquivo da preparação para commit, mas sem apagar as alterações que você fez nele.
                                                            
-
+|Tipo de Reset	|Histórico (HEAD)	|Staging Area (Index)	|Arquivos no disco (Working Directory)|
+|:---:|:---:|:---:|:---:|
+|--soft	|✅ Altera|	✅ Mantém|	✅ Mantém|
+|--mixed (padrão)|	✅ Altera|	❌ Limpa|	✅ Mantém|
+|--hard	|✅ Altera|	❌ Limpa|	❌ Apaga (volta ao último commit)|
 
 
 </details>
