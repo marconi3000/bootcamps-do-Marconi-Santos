@@ -1315,42 +1315,194 @@ Você está na branch feature. Agora você faz um novo commit (ex: D):
 O Git faz isso:      
 A -- B -- C  (main)     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\     
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D  (HEAD -> feature)       
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D  (HEAD -> feature)        
               
-O que aconteceu:      
-- O commit D foi criado.     
-- A branch feature foi atualizada para apontar para D.      
-- A branch main continua parada no commit C.   
-- O ponteiro HEAD (que sempre aponta para a branch atual) acompanha a feature.   
+O que aconteceu:       
+- O commit D foi criado.       
+- A branch feature foi atualizada para apontar para D.       
+- A branch main continua parada no commit C.    
+- O ponteiro HEAD (que sempre aponta para a branch atual) acompanha a feature.    
 
-`git checkout main`        # trocar para a branch main no seu repositório Git   
-`git switch main`          # focado apenas em trocar de branch - comando mais claro e atual   
+`git checkout main`        # trocar para a branch main no seu repositório Git    
+`git switch main`          # focado apenas em trocar de branch - comando mais claro e atual     
 
-Aplicar as mudanças feitas em teste na main   
-Certifique-se de estar na branch main   
-`git merge teste`        # Pega todas as mudanças da branch teste e aplica na branch main.
-Se não houver conflitos, o Git cria um novo commit de merge automaticamente.
-Se houver conflitos, o Git vai avisar, e você precisará resolvê-los manualmente.
+Aplicar as mudanças feitas em teste na main     
+Certifique-se de estar na branch main     
+`git merge teste`        # Pega todas as mudanças da branch teste e aplica na branch main.    
+Se não houver conflitos, o Git cria um novo commit de merge automaticamente.   
+Se houver conflitos, o Git vai avisar, e você precisará resolvê-los manualmente.    
 
 Exluir a branch teste
-`git branch`                            # Checar as braches existentes
-`git branch -d nome-da-branch`	        # Deleta a branch local (se ela já foi mesclada).
-`git branch`                            # Checar se a branch foi pro saco
+`git branch`                            # Checar as braches existentes    
+`git branch -d nome-da-branch`	        # Deleta a branch local (se ela já foi mesclada).    
+`git branch`                            # Checar se a branch foi pro saco    
 
 
 
-`git restore`                           # para recuperar arquivos individuais
-`git branch -v`                         # Mostra o hash abreviado do último commit e a mensagem desse commit em cada branch.
-                                        # `*` → indica a branch atual (a que você está no momento).
-`git branch -v`                         # Mostra ainda mais detalhes.
-`git branch`	                        # Lista todas as branches locais e indica a atual com *.
-`git branch nome-da-branch`	        # Cria uma nova branch com o nome especificado.
-`git branch -d nome-da-branch`	        # Deleta a branch local (se ela já foi mesclada).
-`git branch -D nome-da-branch`	        # Força a exclusão da branch, mesmo sem merge.
-`git branch -m novo-nome`	        # Renomeia a branch atual para novo-nome.
-`git branch -a`	                        # Lista todas as branches, locais e remotas.
+`git restore`                           # para recuperar arquivos individuais     
+`git branch -v`                         # Mostra o hash abreviado do último commit e a mensagem desse commit em cada branch.   
+                                        # `*` → indica a branch atual (a que você está no momento).    
+`git branch -v`                         # Mostra ainda mais detalhes.    
+`git branch`	                        # Lista todas as branches locais e indica a atual com *.   
+`git branch nome-da-branch`	        # Cria uma nova branch com o nome especificado.    
+`git branch -d nome-da-branch`	        # Deleta a branch local (se ela já foi mesclada).  
+`git branch -D nome-da-branch`	        # Força a exclusão da branch, mesmo sem merge.  
+`git branch -m novo-nome`	        # Renomeia a branch atual para novo-nome.   
+`git branch -a`	                        # Lista todas as branches, locais e remotas.   
 
 
+`git fetch`                         # atualiza/baixa as referências locais das branches remotas, mas não altera seu código nem faz merge automático.   
+`git diff main origin/main`         # Mostra as diferenças entre sua branch local main e a remota origin/main.    
+                                    # Você verá o que foi adicionado, removido ou alterado no repositório remoto desde o último pull.    
+                                   ⚠️ Você pode trocar main por qualquer branch, ex: git diff develop origin/develop.   
+
+Clonar apenas uma branch específica no repositório remoto 
+`git clone --branch nome-da-branch --single-branch <URL-do-repositório>`
+`--branch` ou `-b`	# Especifica a branch que você quer clonar
+`--single-branch`	# Clona apenas essa branch, sem histórico das outras
+
+</details>  
+
+Formatar bloco abaixo
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
+
+
+<details><summary>O que é git stash?</summary>
+
+git stash guarda temporariamente as alterações que você fez no seu código (arquivos modificados e/ou não comitados), para que você possa voltar a um estado limpo — e depois restaurar essas alterações quando quiser.
+
+🧠 Para que ele serve?
+
+Imagine que você está trabalhando em algo, mas ainda não quer fazer um commit, e de repente precisa:
+
+Trocar de branch
+
+Puxar atualizações (git pull)
+
+Corrigir algo urgente em outro lugar
+
+Com git stash, você salva suas alterações de lado e pode restaurá-las depois com segurança.
+
+📌 Comando básico:
+git stash
+
+
+Salva as alterações modificadas e rastreadas (as que você já adicionou com git add ou modificou).
+
+Remove essas alterações do seu diretório de trabalho (como se você tivesse um clone limpo de novo).
+
+📂 Exemplo prático:
+
+Você tem um arquivo index.js modificado, mas não quer commitar ainda:
+
+git status
+# modified: index.js
+
+
+Você roda:
+
+git stash
+
+
+Agora:
+
+git status
+# working tree clean
+
+
+Suas alterações estão guardadas temporariamente.
+
+🔄 Para restaurar as alterações:
+git stash pop
+
+
+Traz de volta a alteração e remove ela do stash.
+
+Ou:
+
+git stash apply
+
+
+Traz de volta a alteração, mas mantém uma cópia no stash, caso precise de novo.
+
+🔍 Para ver a lista de stashes salvos:
+git stash list
+
+
+Exemplo de saída:
+
+stash@{0}: WIP on main: 123abc Adiciona função de login
+
+🧽 Para apagar o stash:
+git stash drop stash@{0}     # Remove um stash específico
+git stash clear              # Limpa todos os stashes
+
+💡 Dica:
+
+Você também pode guardar arquivos não rastreados (novos arquivos) usando:
+
+git stash -u
+
+
+Ou tudo mesmo (inclusive ignorados):
+
+git stash -a
+
+
+Se quiser, posso te mostrar um mini fluxo de trabalho com stash, troca de branch e recuperação de alterações. Deseja isso?
+
+Você disse:
+git stash serve para recuperar arquivos deletados?
+O ChatGPT disse:
+
+Boa pergunta! A resposta é:
+
+⚠️ Depende.
+✅ Sim, o git stash pode recuperar arquivos deletados... MAS somente se:
+
+O arquivo deletado era rastreados pelo Git (ou seja, já havia sido adicionado com git add e commitado antes).
+
+Você deletou o arquivo e fez o git stash antes de trocar de branch ou sair.
+
+🧪 Exemplo prático:
+
+Suponha que você tem um arquivo chamado app.js que já está versionado (foi commitado no passado).
+
+Você o deleta manualmente:
+
+rm app.js
+
+
+Depois, roda:
+
+git stash
+
+
+👉 O Git entende: "Esse arquivo deletado fazia parte da árvore anterior, então vou guardar essa informação no stash."
+
+Agora, se você quiser restaurar o que estava antes:
+
+git stash pop
+
+
+🎯 O app.js será restaurado automaticamente — porque o Git sabe que ele foi deletado e você pediu para recuperar as mudanças stashed.
+
+🚫 Mas cuidado:
+
+Se o arquivo nunca foi rastreado (ou seja, não foi adicionado com git add e nem commitado), então o git stash não salva ele por padrão.
+
+✔️ Para incluir arquivos não rastreados (novos) no stash:
+git stash -u
+
+✔️ Para incluir até arquivos ignorados:
+git stash -a
+
+✅ Conclusão rápida:
+Situação	git stash recupera?
+Arquivo deletado e rastreado	✅ Sim
+Arquivo deletado, mas não rastreado (untracked)	❌ Não, a menos que use -u
+Arquivo ignorado pelo .gitignore	❌ Não, a menos que use -a
 
 </details>  
 
