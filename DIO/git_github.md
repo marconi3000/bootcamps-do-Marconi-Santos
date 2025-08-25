@@ -379,6 +379,166 @@ Escolher o editor padrão para mensagens de commit:
 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
 
+<details><summary>Resolvendo problemas de Git Push e Pull e Autenticação SSH com GitHub</summary>
+
+Esse erro:
+
+> git@github.com: Permission denied (publickey).
+> fatal: Could not read from remote repository.
+> Please make sure you have the correct access rights
+> and the repository exists.
+
+
+> significa que o Git não conseguiu autenticar usando sua chave SSH ao tentar acessar o repositório remoto no GitHub.
+
+🔍 O que causa esse erro?
+
+Esse erro ocorre geralmente por um dos seguintes motivos:
+
+| Causa | Explicação |
+|:-----:|:-----:|
+| ❌ Chave SSH não configurada | Você ainda não gerou ou adicionou uma chave SSH no seu computador.|  
+| ❌ Chave SSH não adicionada ao GitHub | Você tem uma chave, mas ela não está registrada no GitHub. |  
+| ❌ Usando o endereço SSH sem ter suporte para ele | Você está tentando usar git@github.com:... (via SSH), mas nunca configurou o acesso SSH. |  
+| 🔐 Permissões incorretas no repositório | Seu usuário não tem permissão para acessar esse repositório. |  
+| 🧱 Firewall/SSH bloqueado | Algumas redes corporativas ou educacionais bloqueiam conexões SSH. |  
+✅ Como resolver passo a passo
+🛠️ 1. Verifique se você já tem uma chave SSH  
+No terminal, digite:  
+> `ls ~/.ssh`  
+
+Procure por arquivos como id_rsa e id_rsa.pub ou id_ed25519 e id_ed25519.pub.  
+Se não tiver, crie com:  
+> `ssh-keygen -t ed25519 -C "seu-email@example.com"`  
+> Pressione Enter para aceitar os valores padrão.
+
+🔑 2. Adicione a chave SSH ao GitHub  
+> Copie o conteúdo da sua chave pública:
+> `cat ~/.ssh/id_ed25519.pub`  
+> Vá para https://github.com/settings/keys  
+> Clique em "New SSH key".  
+> Cole a chave no campo e dê um nome (ex: "Meu PC").  
+
+🔄 3. Adicione sua chave SSH ao agente  
+- Execute:
+> `eval "$(ssh-agent -s)"`  
+> `ssh-add ~/.ssh/id_ed25519`  
+
+📡 4. Teste sua conexão com o GitHub  
+> `ssh -T git@github.com`  
+> Se tudo estiver certo, a resposta será algo como:  
+> `Hi seu-usuario! You've successfully authenticated, but GitHub does not provide shell access.`  
+
+🔁 5. Alternativa: Use HTTPS em vez de SSH   
+> Se preferir evitar SSH, mude a URL do repositório para HTTPS:  
+> `git remote set-url origin https://github.com/seu-usuario/repositorio.git`  
+> Aí você usará seu login/senha (ou token) ao fazer git push/git pull.  
+
+Apareceu este erro  
+
+```
+To github.com:seu-repo/pasta.git  
+ ! [rejected]        main -> main (fetch first)  
+error: failed to push some refs to 'github.com:seu-repo/pasta.git'    
+hint: Updates were rejected because the remote contains work that you do not    
+hint: have locally. This is usually caused by another repository pushing to    
+hint: the same ref. If you want to integrate the remote changes, use    
+hint: 'git pull' before pushing again.    
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.    
+```
+
+Esse erro:  
+
+```  
+! [rejected]        main -> main (fetch first)  
+error: failed to push some refs to 'github.com:seu-repo/pasta.git'  
+hint: Updates were rejected because the remote contains work that you do not  
+hint: have locally.
+```  
+> significa que o repositório remoto (no GitHub) já tem commits que não existem no seu repositório local, e por isso o Git rejeitou seu git push para evitar sobrescrever essas mudanças.
+
+🧠 O que está acontecendo?  
+> Você está tentando dar git push para a branch main.  
+> Mas o Git detectou que o repositório remoto tem commits diferentes dos seus.    
+> Para proteger o histórico do projeto, o Git exige que você primeiro atualize sua cópia local com git pull.  
+
+✅ Como resolver corretamente  
+📌 Etapa 1: Fazer o pull (trazendo as mudanças do remoto)  
+- Se você ainda não fez git pull, faça agora:  
+- `git pull origin main --rebase`  
+- O --rebase tenta aplicar suas mudanças por cima das que estão no GitHub, evitando um commit de merge.  
+
+📌 Etapa 2: Resolver conflitos (se houver)  
+- Se houver conflitos, o Git mostrará os arquivos com problemas. Aí você precisa:  
+- Abrir os arquivos com conflito.  
+- Corrigir os trechos marcados (<<<<<<<, =======, >>>>>>>).  
+- Salvar os arquivos.  
+- Adicionar ao stage novamente:  
+- `git add .`
+
+Continuar o rebase:  
+- `git rebase --continue`
+
+📌 Etapa 3: Agora sim, faça o push  
+- Depois de resolver tudo e estar atualizado com o repositório remoto:  
+- `git push origin main`  
+- ❗ Alternativa perigosa (forçar push – só se você souber o que está fazendo)    
+- Se você quiser descartar tudo o que está no GitHub e forçar seu código local a sobrescrever, use:  
+        - `git push origin main --force`  
+
+> ⚠️ Isso pode apagar mudanças no GitHub feitas por outras pessoas. Evite esse comando se estiver colaborando com outras pessoas ou se não tiver certeza do que está fazendo.  
+
+✅ Resumo do caminho seguro   
+> `git pull origin main --rebase`    
+> corrige conflitos se houver  
+> `git push origin main`  
+
+</details> 
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
+
+
+<details><summary>Criar site no GitHub</summary>  
+
+Suba os arquivos para o GitHub  
+
+Usando Git no terminal:  
+
+> `git init`  
+> `git add .`  
+> `git commit -m "first commit"`  
+> `git branch -M main`  
+> `git remote add origin https://github.com/seu-usuario/meu-site.git`  
+> `git push -u origin main`
+
+Ou via GitHub (upload manual):  
+- Acesse seu repositório no GitHub.  
+- Vá em Add file > Upload files.  
+- Selecione todos os arquivos do seu projeto.  
+- Clique em Commit changes.  
+
+Configure o GitHub Pages    
+- No repositório, clique em Settings.  
+- Vá em Pages (geralmente no menu lateral).  
+- Em Source, selecione:  
+  - Branch: main  
+  - Folder: / (root)  
+  - Clique em Save.  
+GitHub vai gerar uma URL como:
+`https://seu-usuario.github.io/meu-site/`
+
+Acesse suas páginas  
+| Página | URL |  
+|:-----:|:-----:|
+| index.html | https://seu-usuario.github.io/meu-site/ |  
+| contato.html | https://seu-usuario.github.io/meu-site/contato.html |  
+| sobre.html | https://seu-usuario.github.io/meu-site/sobre.html | 
+
+
+</details>  
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
+
 <details><summary>Criando e clonando repositório</summary>  
 
        mkdir nome_da_pasta                   # Criar uma pasta simples  
