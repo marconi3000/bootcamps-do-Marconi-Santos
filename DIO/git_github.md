@@ -878,6 +878,39 @@ Use `git reflog` para ver os commits anteriores e voltar para eles.
 |--mixed (padrão)|	✅ Altera|	❌ Limpa|	✅ Mantém|
 |--hard	|✅ Altera|	❌ Limpa|	❌ Apaga (volta ao último commit)|
 
+A flag --hard no comando git reset é uma das mais poderosas (e perigosas) no Git, porque ela desfaz mudanças permanentemente, tanto no histórico quanto nos arquivos do seu diretório de trabalho.
+
+✅ Comando:   
+git reset --hard <commit>   
+
+🧠 O que esse comando faz:   
+- Ele move o ponteiro da branch atual (HEAD) para um commit anterior e:    
+- Apaga os commits posteriores (se houver).  
+- Remove todas as mudanças no diretório de trabalho (arquivos modificados).  
+- Remove tudo da área de staging (o que estava com git add).  
+📌 Em resumo:    
+🔥 `git reset --hard` volta tudo — código, staging e histórico — ao estado exato de um commit específico.  
+📊 Exemplo prático:  
+Imagine que seu histórico está assim:  
+`A -- B -- C -- D (HEAD -> main)`
+Você roda:
+`git reset --hard B`
+Agora seu repositório está assim:
+`A -- B (HEAD -> main)`
+Commits C e D foram apagados da branch.  
+- Todas as mudanças feitas depois de B desapareceram do código e do staging.  
+- Se você não tiver backup, esses commits foram perdidos permanentemente.  
+⚠️ Atenção (risco de perda):  
+- Commits apagados com --hard não vão para a lixeira nem ficam em stash.  
+- Só são recuperáveis com sorte (por exemplo, via git reflog, se ainda disponível).  
+✅ Quando usar (com cuidado):  
+- Você quer voltar totalmente para um estado anterior.  
+- Você cometeu erros e quer apagar tudo depois de um certo ponto.  
+- Você quer limpar arquivos modificados rapidamente (como um "reset de fábrica").  
+🚫 Evite usar --hard se:  
+- Você não tem certeza do que está fazendo.  
+- Quer manter alguma parte das mudanças.  
+- Está trabalhando com outras pessoas e pode afetar o repositório compartilhado.  
 
 </details>
 
@@ -1322,23 +1355,6 @@ Exluir a branch teste
 </details>  
 
 
-parei aqui
-
-<!-- 
-        Cria espaços vazios                     &nbsp;
-        Negrito	                                Ctrl + B	
-        Itálico	                                Ctrl + I	
-        Riscado	                                Alt + Shift + 5	
-        Código em linha	                        Ctrl + E	
-        Bloco de código	                        Ctrl + Shift + E	
-        Lista ordenada	                        Ctrl + Shift + 7	
-        Lista com marcadores	                Ctrl + Shift + 8	
-        Citação (>)	                        Ctrl + Shift + 9	
-        Link [texto](url)	                Ctrl + K	
-        Visualizar Markdown (Preview tab)	Ctrl + Shift + P
-
--->
-
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
 
 
@@ -1356,6 +1372,9 @@ git branch                # Lista branches
 git checkout -b nome      # Cria e acessa uma nova branch
 git merge outra-branch    # Mescla outra-branch com a atual
 git stash                 # Armazena alterações temporariamente
+ctrl + l                  # É o comando que limpa a tela do terminal do git.
+git log                   # Comando para visualizar os logs dos arquivos gravados no repositório.
+ 
 </pre>
 
 </details>  
@@ -1367,13 +1386,13 @@ git stash                 # Armazena alterações temporariamente
 <details><summary>COMANDOS</summary>  
 
 
-        mkdir nome_do_diretorio                # Criar um diretório simples
-        mkdir -p pasta/filho1/filho2           # Criar diretórios aninhados de uma só vez
+        mkdir nome_do_diretorio                                # Criar um diretório simples
+        mkdir -p pasta/filho1/filho2                           # Criar diretórios aninhados de uma só vez
 
-        touch nome_do_arquivo.ext                   # cria um arquivo vazio ou atualiza a data de modificação se ele já existir.
-        touch arquivo1.txt arquivo2.js imagem.png   # Criar múltiplos arquivos simultaneamente
-        echo "Texto inicial" > arquivo.txt          # Criar e adicionar conteúdo no mesmo comando
-        nano arquivo.txt                            # Criar e começar a editar imediatamente com o editor padrão
+        touch nome_do_arquivo.ext                           # cria um arquivo vazio ou atualiza a data de modificação se ele já existir.
+        touch arquivo1.txt arquivo2.js imagem.png           # Criar múltiplos arquivos simultaneamente
+        echo "Texto inicial" > arquivo.txt                  # Criar e adicionar conteúdo no mesmo comando
+        nano arquivo.txt                                    # Criar e começar a editar imediatamente com o editor padrão
         OU
         vi arquivo.txt
 
@@ -1382,70 +1401,59 @@ git stash                 # Armazena alterações temporariamente
         git log --stat	                            # Ver quais arquivos mudaram em cada commit
         git log --graph --oneline --all	            # Ver o histórico em forma de árvore
         
-
-    git commit -m"contato da mensagem de commit": Gravação de arquivo no git. Esse comando serve para enviar os arquivos no git. 
-    O "-m" é referente ao termo "mensseger". Ou seja, mensagem que será gravada no commit.
-    
-    ctrl + l = É o comando que limpa a tela do terminal do git.
-    
-    git log: Comando para visualizar os logs dos arquivos gravados no repositório.
-    
-    git remote add origin + endereço da pasta no github: Esse comando permite indicar para o repositório no github. Ou seja, 
-    o usuário cria uma página no github e pode direcionar uma página do seu computador local para a pasta do github sem precisa clonar o repositório.
-    
-    git clone + endereço da pasta no github: Esse comando serve para clonar um projeto no github.
-    
-    gitignore: Arquivo para ser criado no git e evita que determinados arquivos sejam adicionais. Ou seja, o git vai ignorar os arquivos que estão dentro dele.
-    
-    Exemplo: touch .gitignore (Criar arquivo dentro da pasta determinada) echo "nome do arquivo que você quer ignorar" >> .gitignore 
-    (Escreve dentro do arquivo do gitignore o nome do arquivo que você quer ignorar.).
-    
-    git add .gitignore: Adicionando o gitignore detro do githubIgnorando todos os arquivos de uma extensão: echo "*.log" >> .gitignore
-    
-    Ignorando um diretório inteiro:  echo "pastaignorada/" >> .gitignore
-    
-    git commit -am"Rastreando/adicionando e confirmando ao mesmo tempo um arquivo."
-    
-    git log -n 3: Comando mostra os três últimos commits.
-    
-    git log --oneline: Resumo dos commits feitos no projeto.
-    
-    git log --state: Mostra o resumo dos arquivos alterados com o número de linhas alteradas e removidas.
-    
-    git rm nomedoarquivo: Esse comando serve para remover/deletar um arquivo do repositório. Todo arquivo removido precisa ser commitado - Não esqueça disso.
-    
-    git mv nomeantigo nome_novo: O comando "mv" altera o nome de um arquivo. Ou seja, renomeia o arquivo existente, exemplo:
-    
-      git mv algo01.py algoritmo01.py
-    
-    git checkout -- nomedoarquivo: Esse comando permite fazer uma alteração em um arquivo específico, exemplo:
-    
-      echo "Mudança no arquivo!" >> arquivo.txt -> Efetuado alteração no arquivo.
-    
-    git checkout -- arquivo.txt: Cancelando a última alteração do arquivo. Lembrando, as alterações só podem ser corrigidas se estiverem 
-    fora do palco. Ou seja, antes de adicionar o arquivo com o comando -> git add nomedoarquivo.
-    
-    git reset --hard: Comando para desfazer todas as modificações que você fez.
-    
-    git branch novo_branch: Comando para criar um novo branch.
-    
-    git branch: Comando para listar as ramificações existentes.
-    
-    git checkout novo_branch: Comando para mudar de branch.
-    
-    git checkout -b nova_branch: Comando cria uma nova branch e troca para ela ao mesmo tempo.
-    
-    git branch -d nova_branch: Comando deletar um branch criado.
-    
-    OBS: Uma filial só pode ser excluída se o usuário não estiver nela. Ou seja, o desenvolvedor deve mudar de branch com o comando 
-    "git checkout master" (por exemplo) e deletar o branch que deseja.
-    
-    git branch -D nova_branch: O comando usando o "-D" (letra secretos) é usado quando existe commit na branch.
-    
-    git branch --no-merged: Comando para identificar se existe alguma branch não mesclada.
-    
-    git merge nova_branch -m"Mensagem sobre a mesclagem do branch.": Esse comando mescla a nova_branch ao master.
-
+Gravação de arquivo no git. Esse comando serve para enviar os arquivos no git. O "-m" é referente ao termo "mensseger". Ou seja, mensagem que será gravada no commit.  
+`git commit -m"contato da mensagem de commit"`        
+Esse comando permite indicar para o repositório no github. Ou seja, o usuário cria uma página no github e pode direcionar uma página do seu computador local para a pasta do github sem precisa clonar o repositório.  
+`git remote add origin + endereço da pasta no github`        
+Esse comando serve para clonar um projeto no github.  
+`git clone + endereço da pasta no github`   
+Arquivo para ser criado no git e evita que determinados arquivos sejam adicionais. Ou seja, o git vai ignorar os arquivos que estão dentro dele.  
+`gitignore`   
+Exemplo: 
+`touch .gitignore` (Criar arquivo dentro da pasta determinada)   
+`echo "nome do arquivo que você quer ignorar" >> .gitignore` (Escreve dentro do arquivo do gitignore o nome do arquivo que você quer ignorar.).   
+Adicionando o gitignore detro do githubIgnorando todos os arquivos de uma extensão: 
+`git add .gitignore`    
+`echo "*.log" >> .gitignore`   
+Ignorando um diretório inteiro:      
+`echo "pastaignorada/" >> .gitignore`   
+`git commit -am"Rastreando/adicionando` e confirmando ao mesmo tempo um arquivo.   
+Comando mostra os três últimos commits.    
+`git log -n 3`   
+Resumo dos commits feitos no projeto.  
+`git log --oneline`    
+Mostra o resumo dos arquivos alterados com o número de linhas alteradas e removidas.  
+`git log --state`   
+Esse comando serve para remover/deletar um arquivo do repositório. Todo arquivo removido precisa ser commitado - Não esqueça disso.   
+`git rm nomedoarquivo`     
+O comando "mv" altera o nome de um arquivo. Ou seja, renomeia o arquivo existente, exemplo:    
+`git mv nomeantigo nome_novo`    
+`git mv algo01.py algoritmo01.py`
+Esse comando permite fazer uma alteração em um arquivo específico, exemplo:
+`git checkout -- nomedoarquivo`    
+Efetuado alteração no arquivo.   
+`echo "Mudança no arquivo!" >> arquivo.txt`   
+Cancelando a última alteração do arquivo. Lembrando, as alterações só podem ser corrigidas se estiverem fora do palco. Ou seja, antes de adicionar o arquivo com o comando -> `git add nomedoarquivo`.      
+`git checkout -- arquivo.txt`   
+Comando para desfazer todas as modificações que você fez.   
+`git reset --hard`    
+Comando para criar um novo branch.      
+`git branch novo_branch`      
+Comando para listar as ramificações existentes.      
+`git branch`       
+Comando para mudar de branch.    
+`git checkout novo_branch`    
+Comando cria uma nova branch e troca para ela ao mesmo tempo.    
+`git checkout -b nova_branch`    
+Comando deletar um branch criado.      
+`git branch -d nova_branch`    
+OBS: Uma filial só pode ser excluída se o usuário não estiver nela. Ou seja, o desenvolvedor deve mudar de branch com o comando "`git checkout master`" (por exemplo) e deletar o branch que deseja.    
+O comando usando o "-D" (letra secretos) é usado quando existe commit na branch.     
+`git branch -D nova_branch`    
+Comando para identificar se existe alguma branch não mesclada.    
+`git branch --no-merged`      
+Esse comando mescla a nova_branch ao master.    
+`git merge nova_branch -m"Mensagem sobre a mesclagem do branch."` 
 
 </details>  
 
@@ -1490,6 +1498,7 @@ git stash                 # Armazena alterações temporariamente
 
 <details><summary>Atalhos do teclado</summary> 
 
+        Cria espaços vazios                     &nbsp;
         Negrito	                                Ctrl + B	
         Itálico	                                Ctrl + I	
         Riscado	                                Alt + Shift + 5	
