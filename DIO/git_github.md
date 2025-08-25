@@ -1329,17 +1329,70 @@ git push origin --delete feature/formulario
 COMANDOS ÚTEIS 
 `echo "#commit-1-branch-main" > commit-1-main.txt`
 
-`echo "#commit-1-branch-main"`
-O comando echo imprime uma mensagem na saída padrão (normalmente, no terminal).
-Neste caso, ele imprime a string "#commit-1-branch-main".
-🔹 `>`
-Esse símbolo > é um operador de redirecionamento.
-Ele redireciona a saída do comando para um arquivo.
-Se o arquivo não existir, ele será criado.
-Se o arquivo já existir, ele será sobrescrito (vai apagar o conteúdo anterior e colocar o novo).
-🔹 `commit-1-main.txt`
-É o nome do arquivo que será criado ou sobrescrito.
-Neste exemplo, será criado um arquivo de nome commit-1-main.txt, contendo o texto #commit-1-branch-main.
+`echo "#commit-1-branch-main"`   
+- O comando echo imprime uma mensagem na saída padrão (normalmente, no terminal).
+Neste caso, ele imprime a string "#commit-1-branch-main".   
+🔹 `>`   
+- Esse símbolo > é um operador de redirecionamento.   
+- Ele redireciona a saída do comando para um arquivo.  
+- Se o arquivo não existir, ele será criado.  
+- Se o arquivo já existir, ele será sobrescrito (vai apagar o conteúdo anterior e colocar o novo).  
+🔹 `commit-1-main.txt`     
+- É o nome do arquivo que será criado ou sobrescrito.    
+Neste exemplo, será criado um arquivo de nome commit-1-main.txt, contendo o texto #commit-1-branch-main.   
+
+Exemplo prático em Git   
+`echo "#commit-1-branch-main" > commit-1-main.txt`   
+`git add commit-1-main.txt`   
+`git commit -m "feat: adiciona arquivo commit-1-main.txt na branch main"`  
+`git log` para visualizar os commits e as hashs  
+- Se você quiser adicionar uma nova linha ao final do arquivo (sem sobrescrever), use >> em vez de >:     
+- `echo "nova linha" >> commit-1-main.txt`  
+
+`git checkout -b teste` # A flag -b no comando git checkout serve para criar uma nova branch e trocar para ela imediatamente.  
+:rotating_light:  
+O comando `git switch -c teste` serve para criar uma **nova branch chamada teste** e alternar para ela imediatamente — ou seja, ele faz a mesma coisa que `git checkout -b teste`, mas com uma **sintaxe mais moderna e clara**.  
+- `git switch`: usado para trocar de branch (introduzido no Git 2.23 para melhorar a clareza).  
+- `-c`: significa "create" (criar).  
+- `teste`: é o nome da nova branch que você quer criar.
+
+`git log`        # A branch teste está apontando para o mesmo commit da barnch main
+Quando você cria uma nova branch a partir de outra, o que acontece?
+
+Quando você está em uma branch (por exemplo, main) e cria uma nova branch (por exemplo, feature), essa nova branch aponta exatamente para o mesmo commit onde você estava no momento da criação.  
+📌 Significa que:  
+- Ambas as branches (main e feature) compartilham o mesmo histórico até aquele ponto.  
+- A nova branch (feature) começa do exato commit onde a branch atual está.  
+
+📊 Visualizando:    
+Suponha que seu histórico atual seja assim, e você está na branch main:  
+`A -- B -- C  (HEAD -> main)`  
+Agora você roda:   
+`git switch -c feature`  
+Resultado:
+`A -- B -- C  (main, feature, HEAD)`
+As branches main e feature agora apontam para o mesmo commit C.
+O HEAD aponta para feature, porque você trocou de branch.
+
+Ao realizar um novo commit, Esse commit para a apontar para a branch feature.   
+Você tem:   
+`A -- B -- C  (HEAD -> feature, main)`   
+Você está na branch feature. Agora você faz um novo commit (ex: D):    
+`git add .`   
+`git commit -m "Novo recurso"`   
+O Git faz isso:    
+A -- B -- C  (main)   
+           \   
+            D  (HEAD -> feature)    
+              
+O que aconteceu:    
+- O commit D foi criado.   
+- A branch feature foi atualizada para apontar para D.   
+- A branch main continua parada no commit C.
+- O ponteiro HEAD (que sempre aponta para a branch atual) acompanha a feature.   
+
+`git restore` para recuperar arquivos individuais
+
 
 </details>  
 
