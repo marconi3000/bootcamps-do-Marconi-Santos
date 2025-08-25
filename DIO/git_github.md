@@ -900,21 +900,24 @@ Salvar os arquivos.
 | Enviar alterações locais para o remoto | `git push origin nome-da-branch`|
 
 > `git init`  
-> `git add README.md`  
-> `git commit -m "first commit"` 
-> `git branch -M main`
-> `git remote add origin https://github.com/seu-usuario/NomeDoProjeto.git`
-> `git push -u origin main`
-> `git status`  
 > `git add .`  
-> `git commit -m "Corrige bug no login"`  
+> `git commit -m "first commit"`  
+> `git branch -M main`  
+> `git remote add origin https://github.com/seu-usuario/NomeDoProjeto.git`  
+> `git push -u origin main`
+##### OU   
 > `git pull origin main`  
-> `git push origin main`  
+
+</details>  
+
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
 
 
 parei aqui
 
-## **Comandos Git via Terminal Integrado**
+
+<details><summary>Comandos Git via Terminal Integrado</summary>  
 
 <pre>
 git init                  # Inicializa o repositório
@@ -930,8 +933,14 @@ git merge outra-branch    # Mescla outra-branch com a atual
 git stash                 # Armazena alterações temporariamente
 </pre>
 
+</details>  
 
-## **COMANDOS**
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
+
+
+<details><summary>COMANDOS</summary>  
+
 
         mkdir nome_do_diretorio                # Criar um diretório simples
         mkdir -p pasta/filho1/filho2           # Criar diretórios aninhados de uma só vez
@@ -1012,13 +1021,15 @@ git stash                 # Armazena alterações temporariamente
     
     git merge nova_branch -m"Mensagem sobre a mesclagem do branch.": Esse comando mescla a nova_branch ao master.
 
-<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+</details>  
 
 
-## **Atalhos nativos do Bash (funcionam no Git Bash)**
-<details><summary>Clique na setinha para expandir a explicação!</summary>
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
 
-                Esses atalhos facilitam a edição de linha, movimentação e histórico de comandos:
+
+<details><summary>Esses atalhos facilitam a edição de linha, movimentação e histórico de comandos:</summary>  
+
                 
                 Ctrl + A: Vai para o início da linha
                 
@@ -1046,41 +1057,51 @@ git stash                 # Armazena alterações temporariamente
                 
                 Tab: Completa nomes de arquivo ou comandos automaticamente
 
-</details>
-
-<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
-
-Atalhos do teclado
-Negrito	                                Ctrl + B	
-Itálico	                                Ctrl + I	
-Riscado	                                Alt + Shift + 5	
-Código em linha	                        Ctrl + E	
-Bloco de código	                        Ctrl + Shift + E	
-Lista ordenada	                        Ctrl + Shift + 7	
-Lista com marcadores	                Ctrl + Shift + 8	
-Citação (>)	                        Ctrl + Shift + 9	
-Link [texto](url)	                Ctrl + K	
-Visualizar Markdown (Preview tab)	Ctrl + Shift + P	
+</details>  
 
 
-Setas e Símbolos Diversos
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
 
-Um conjunto diverso de símbolos e setas com seus shortcodes:
 
-:one: → 1️⃣
-:hash: → #️⃣
-:arrow_down: → ⬇️
-:arrow_up: → ⬆️
-:arrow_right: → ➡️
-⬅️
-:information_source: → ℹ️
-:ok: → 🆗
-:new: → 🆕
-:zero: → 0️⃣
-:underage: → 🔞
-:no_entry_sign: → 🚫
-:clock1: → 🕐
-:tm: → ™️
-:white_check_mark: → ✅
-:heavy_check_mark: → ✔️
-:x: → ❌ 
+<details><summary>Atalhos do teclado</summary> 
+
+        Negrito	                                Ctrl + B	
+        Itálico	                                Ctrl + I	
+        Riscado	                                Alt + Shift + 5	
+        Código em linha	                        Ctrl + E	
+        Bloco de código	                        Ctrl + Shift + E	
+        Lista ordenada	                        Ctrl + Shift + 7	
+        Lista com marcadores	                Ctrl + Shift + 8	
+        Citação (>)	                        Ctrl + Shift + 9	
+        Link [texto](url)	                Ctrl + K	
+        Visualizar Markdown (Preview tab)	Ctrl + Shift + P	
+
+</details>  
+
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
+
+
+<details><summary>Setas e Símbolos Diversos</summary> 
+
+        Um conjunto diverso de símbolos e setas com seus shortcodes:
+
+        :one: → 1️⃣
+        :hash: → #️⃣
+        :arrow_down: → ⬇️
+        :arrow_up: → ⬆️
+        :arrow_right: → ➡️
+        ⬅️
+        :information_source: → ℹ️
+        :ok: → 🆗
+        :new: → 🆕
+        :zero: → 0️⃣
+        :underage: → 🔞
+        :no_entry_sign: → 🚫
+        :clock1: → 🕐
+        :tm: → ™️
+        :white_check_mark: → ✅
+        :heavy_check_mark: → ✔️
+        :x: → ❌ 
+
+</details>  
