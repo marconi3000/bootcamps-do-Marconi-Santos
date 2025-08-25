@@ -922,6 +922,66 @@ Salvar os arquivos.
 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
 
+<details><summary>Comandos Git via Terminal Integrado</summary>  
+
+Como visualizar HTML como página web no GitHub usando GitHub Pages
+1. O que é o GitHub Pages?
+
+O GitHub Pages é um serviço gratuito do GitHub que transforma seu repositório em um site estático.
+
+Ele é usado para hospedar sites pessoais, projetos, documentação, blogs etc — tudo diretamente do seu repositório.
+
+2. Passo a passo para ativar e visualizar seu HTML
+Passo 1: Tenha seu arquivo HTML no repositório
+
+Certifique-se de que seu arquivo .html esteja no repositório — geralmente na raiz (/) ou na pasta docs/.
+
+Exemplo: index.html
+
+Passo 2: Acesse as configurações do seu repositório
+
+No GitHub, vá até o seu repositório.
+
+Clique na aba Settings (Configurações).
+
+Passo 3: Configure o GitHub Pages
+
+No menu lateral, clique em Pages (geralmente na seção “Code and automation”).
+
+Na seção “Source” (Fonte), selecione a branch onde está seu arquivo HTML (normalmente main ou master).
+
+Escolha a pasta onde está o arquivo (root / ou /docs).
+
+Clique em Save.
+
+Passo 4: Acesse o link do seu site
+
+Após alguns segundos (pode levar alguns minutos para publicar), o GitHub mostrará o endereço do seu site, algo como:
+
+https://seu-usuario.github.io/nome-do-repositorio/
+
+
+Acesse esse link no navegador e verá seu arquivo HTML renderizado como página web.
+
+3. Dicas extras
+
+O arquivo principal do seu site precisa ser index.html na raiz ou na pasta selecionada para que seja carregado automaticamente.
+
+Você pode adicionar CSS, JavaScript e outras páginas HTML, e navegar entre elas usando links relativos.
+
+Atualize o repositório com commits e o site será atualizado automaticamente.
+
+4. Exemplo prático
+
+Suponha que você tenha um repositório chamado meu-site com o arquivo index.html na raiz.
+
+Depois de configurar o GitHub Pages apontando para a branch main e pasta /, o site ficará disponível em:
+
+https://seu-usuario.github.io/meu-site/
+
+
+</details>  
+
 
 parei aqui
 
