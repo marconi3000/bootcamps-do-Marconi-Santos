@@ -795,6 +795,15 @@ Para contribuições rápidas em projetos open source, é uma alternativa práti
 
 <details><summary>Como Usar git pull e git push</summary>  
 
+> `git init`  
+> `git add .`  
+> `git commit -m "first commit"`  
+> `git branch -M main`  
+> `git remote add origin https://github.com/seu-usuario/NomeDoProjeto.git`  
+> `git push -u origin main`
+##### OU   
+> `git pull origin main`  
+
 🔄 Entendendo git pull e git push  
 | Comando | Para que serve |  
 |:-----:|:-----:|   
