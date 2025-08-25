@@ -1143,7 +1143,225 @@ https://seu-usuario.github.io/meu-site/
 </details>  
 
 
+<details><summary>Branches no Git e GitHub</summary> 
+
+Branches no Git e GitHub
+🧠 O que é uma branch?
+
+Uma branch (ramificação) é como uma cópia da sua linha de desenvolvimento principal, onde você pode trabalhar em funcionalidades ou correções de forma isolada, sem afetar o restante do projeto.
+
+Exemplos de uso de branches:
+
+Desenvolver uma nova funcionalidade (feature/login)
+
+Corrigir um bug (fix/header-bug)
+
+Testar uma ideia experimental
+
+Separar ambientes (ex: dev, staging, main)
+
+🛠️ Comandos Básicos de Branch no Git
+1. Criar uma nova branch
+git branch nome-da-branch
+
+
+Exemplo:
+
+git branch feature/cadastro
+
+2. Trocar para outra branch
+git checkout nome-da-branch
+
+
+Exemplo:
+
+git checkout feature/cadastro
+
+
+✅ Dica: Desde o Git 2.23, você pode usar o git switch:
+
+git switch feature/cadastro
+
+3. Criar e já trocar para a nova branch (atalho)
+git checkout -b nome-da-branch
+
+
+Exemplo:
+
+git checkout -b fix/menu
+
+4. Listar todas as branches
+git branch
+
+
+As branches locais aparecerão, e a atual estará com *.
+
+5. Deletar uma branch local
+git branch -d nome-da-branch
+
+
+⚠️ Use -D (maiúsculo) se quiser forçar a exclusão.
+
+🔀 Mesclando branches (merge)
+
+Quando você termina uma tarefa em uma branch e quer integrá-la à principal (main, por exemplo), usa-se o merge.
+
+Exemplo de fluxo:
+git checkout main
+git pull origin main
+git merge feature/cadastro
+
+🧼 Resolver conflitos de merge
+
+Às vezes, dois arquivos são editados ao mesmo tempo em diferentes branches. O Git não sabe qual versão manter, então você precisa resolver manualmente.
+
+Você verá marcações assim num arquivo:
+
+<<<<<<< HEAD
+versão da branch atual
+=======
+versão da branch que está sendo mesclada
+>>>>>>> feature/nova-funcionalidade
+
+
+Basta editar, salvar e depois:
+
+git add .
+git commit
+
+🚀 Subindo branches para o GitHub
+1. Enviar a branch para o GitHub
+git push origin nome-da-branch
+
+
+Exemplo:
+
+git push origin feature/cadastro
+
+2. Criar um Pull Request (PR)
+
+Vá até o GitHub → clique em "Compare & Pull Request" para mesclar sua branch com a principal.
+
+Você pode:
+
+Adicionar descrição
+
+Marcar revisores
+
+Adicionar labels
+
+🧪 Branches remotas x locais
+
+Branch local: existe só na sua máquina.
+
+Branch remota: está no GitHub (ou outro repositório remoto).
+
+Para ver todas as branches, inclusive remotas:
+
+git branch -a
+
+🧹 Limpar branches antigas
+Deletar branch no GitHub:
+git push origin --delete nome-da-branch
+
+
+Exemplo:
+
+git push origin --delete fix/menu
+
+📚 Fluxos comuns com branches
+1. Feature Branch Workflow
+
+main: sempre com código pronto para produção.
+
+dev: para desenvolvimento geral.
+
+feature/*: para cada funcionalidade.
+
+2. Git Flow (mais formal)
+
+main
+
+develop
+
+feature/*
+
+release/*
+
+hotfix/*
+
+✅ Boas práticas com branches
+
+Use nomes claros e descritivos: feature/login, bugfix/header, hotfix/deploy-crash.
+
+Trabalhe com Pull Requests para facilitar a revisão de código.
+
+Sempre atualize a main antes de mesclar (merge).
+
+Delete branches que não são mais usadas.
+
+👨‍💻 Exemplo prático completo:
+# Comece na branch principal
+git checkout main
+git pull
+
+# Crie uma nova funcionalidade
+git checkout -b feature/formulario
+# ...faça alterações no código...
+git add .
+git commit -m "feat: cria formulário de cadastro"
+
+# Envie para o GitHub
+git push origin feature/formulario
+
+# No GitHub, crie um Pull Request
+# Após aprovação:
+git checkout main
+git pull
+git merge feature/formulario
+git push
+
+# Delete a branch local e remota
+git branch -d feature/formulario
+git push origin --delete feature/formulario
+
+
+COMANDOS ÚTEIS 
+`echo "#commit-1-branch-main" > commit-1-main.txt`
+
+`echo "#commit-1-branch-main"`
+O comando echo imprime uma mensagem na saída padrão (normalmente, no terminal).
+Neste caso, ele imprime a string "#commit-1-branch-main".
+🔹 `>`
+Esse símbolo > é um operador de redirecionamento.
+Ele redireciona a saída do comando para um arquivo.
+Se o arquivo não existir, ele será criado.
+Se o arquivo já existir, ele será sobrescrito (vai apagar o conteúdo anterior e colocar o novo).
+🔹 `commit-1-main.txt`
+É o nome do arquivo que será criado ou sobrescrito.
+Neste exemplo, será criado um arquivo de nome commit-1-main.txt, contendo o texto #commit-1-branch-main.
+
+</details>  
+
+
 parei aqui
+
+<!-- 
+
+        Negrito	                                Ctrl + B	
+        Itálico	                                Ctrl + I	
+        Riscado	                                Alt + Shift + 5	
+        Código em linha	                        Ctrl + E	
+        Bloco de código	                        Ctrl + Shift + E	
+        Lista ordenada	                        Ctrl + Shift + 7	
+        Lista com marcadores	                Ctrl + Shift + 8	
+        Citação (>)	                        Ctrl + Shift + 9	
+        Link [texto](url)	                Ctrl + K	
+        Visualizar Markdown (Preview tab)	Ctrl + Shift + P
+
+-->
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
 
 
 <details><summary>Comandos Git via Terminal Integrado</summary>  
