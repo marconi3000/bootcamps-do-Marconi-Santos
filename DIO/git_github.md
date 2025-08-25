@@ -1082,249 +1082,148 @@ Salvar os arquivos.
 
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
 
-<details><summary>Comandos Git via Terminal Integrado</summary>  
+<details><summary>Como visualizar HTML como página web no GitHub usando GitHub Pages</summary>  
 
 Como visualizar HTML como página web no GitHub usando GitHub Pages
 1. O que é o GitHub Pages?
-
 O GitHub Pages é um serviço gratuito do GitHub que transforma seu repositório em um site estático.
-
 Ele é usado para hospedar sites pessoais, projetos, documentação, blogs etc — tudo diretamente do seu repositório.
-
 2. Passo a passo para ativar e visualizar seu HTML
 Passo 1: Tenha seu arquivo HTML no repositório
-
 Certifique-se de que seu arquivo .html esteja no repositório — geralmente na raiz (/) ou na pasta docs/.
-
 Exemplo: index.html
-
 Passo 2: Acesse as configurações do seu repositório
-
 No GitHub, vá até o seu repositório.
-
 Clique na aba Settings (Configurações).
-
 Passo 3: Configure o GitHub Pages
-
 No menu lateral, clique em Pages (geralmente na seção “Code and automation”).
-
 Na seção “Source” (Fonte), selecione a branch onde está seu arquivo HTML (normalmente main ou master).
-
 Escolha a pasta onde está o arquivo (root / ou /docs).
-
 Clique em Save.
-
 Passo 4: Acesse o link do seu site
-
 Após alguns segundos (pode levar alguns minutos para publicar), o GitHub mostrará o endereço do seu site, algo como:
-
 https://seu-usuario.github.io/nome-do-repositorio/
-
-
 Acesse esse link no navegador e verá seu arquivo HTML renderizado como página web.
-
 3. Dicas extras
-
 O arquivo principal do seu site precisa ser index.html na raiz ou na pasta selecionada para que seja carregado automaticamente.
-
 Você pode adicionar CSS, JavaScript e outras páginas HTML, e navegar entre elas usando links relativos.
-
 Atualize o repositório com commits e o site será atualizado automaticamente.
-
 4. Exemplo prático
-
 Suponha que você tenha um repositório chamado meu-site com o arquivo index.html na raiz.
-
 Depois de configurar o GitHub Pages apontando para a branch main e pasta /, o site ficará disponível em:
-
 https://seu-usuario.github.io/meu-site/
-
 
 </details>  
 
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->  
 
 <details><summary>Branches no Git e GitHub</summary> 
 
-Branches no Git e GitHub
 🧠 O que é uma branch?
+> Uma branch (ramificação) é como uma cópia da sua linha de desenvolvimento principal, onde você pode trabalhar em funcionalidades ou correções de forma isolada, sem afetar o restante do projeto.  
+Exemplos de uso de branches:    
+- Desenvolver uma nova funcionalidade (feature/login)    
+- Corrigir um bug (fix/header-bug)    
+- Testar uma ideia experimental     
+- Separar ambientes (ex: dev, staging, main)        
 
-Uma branch (ramificação) é como uma cópia da sua linha de desenvolvimento principal, onde você pode trabalhar em funcionalidades ou correções de forma isolada, sem afetar o restante do projeto.
+🛠️ Comandos Básicos de Branch no Git  
+1. Criar uma nova branch  
+`git branch nome-da-branch`  
+Exemplo:  
+`git branch feature/cadastro`  
+2. Trocar para outra branch  
+`git checkout nome-da-branch`  
+Exemplo:  
+`git checkout feature/cadastro`  
+✅ Dica: Desde o Git 2.23, você pode usar o git switch:  
+`git switch feature/cadastro`  
+3. Criar e já trocar para a nova branch (atalho)  
+`git checkout -b nome-da-branch`  
+Exemplo:  
+`git checkout -b fix/menu`  
+4. Listar todas as branches  
+`git branch`  
+As branches locais aparecerão, e a atual estará com *.  
+5. Deletar uma branch local  
+`git branch -d nome-da-branch`  
+⚠️ Use -D (maiúsculo) se quiser forçar a exclusão.  
+🔀 Mesclando branches (merge)  
+Quando você termina uma tarefa em uma branch e quer integrá-la à principal (main, por exemplo), usa-se o merge.  
+Exemplo de fluxo:   
+`git checkout main`  
+`git pull origin main`  
+`git merge feature/cadastro`  
 
-Exemplos de uso de branches:
-
-Desenvolver uma nova funcionalidade (feature/login)
-
-Corrigir um bug (fix/header-bug)
-
-Testar uma ideia experimental
-
-Separar ambientes (ex: dev, staging, main)
-
-🛠️ Comandos Básicos de Branch no Git
-1. Criar uma nova branch
-git branch nome-da-branch
-
-
-Exemplo:
-
-git branch feature/cadastro
-
-2. Trocar para outra branch
-git checkout nome-da-branch
-
-
-Exemplo:
-
-git checkout feature/cadastro
-
-
-✅ Dica: Desde o Git 2.23, você pode usar o git switch:
-
-git switch feature/cadastro
-
-3. Criar e já trocar para a nova branch (atalho)
-git checkout -b nome-da-branch
-
-
-Exemplo:
-
-git checkout -b fix/menu
-
-4. Listar todas as branches
-git branch
-
-
-As branches locais aparecerão, e a atual estará com *.
-
-5. Deletar uma branch local
-git branch -d nome-da-branch
-
-
-⚠️ Use -D (maiúsculo) se quiser forçar a exclusão.
-
-🔀 Mesclando branches (merge)
-
-Quando você termina uma tarefa em uma branch e quer integrá-la à principal (main, por exemplo), usa-se o merge.
-
-Exemplo de fluxo:
-git checkout main
-git pull origin main
-git merge feature/cadastro
-
-🧼 Resolver conflitos de merge
-
+🧼 Resolver conflitos de merge  
 Às vezes, dois arquivos são editados ao mesmo tempo em diferentes branches. O Git não sabe qual versão manter, então você precisa resolver manualmente.
+Você verá marcações assim num arquivo:  
 
-Você verá marcações assim num arquivo:
+<<<<<<< HEAD  
+versão da branch atual  
+=======  
+versão da branch que está sendo mesclada  
+>>>>>>> feature/nova-funcionalidade  
 
-<<<<<<< HEAD
-versão da branch atual
-=======
-versão da branch que está sendo mesclada
->>>>>>> feature/nova-funcionalidade
+Basta editar, salvar e depois:  
+`git add .`  
+`git commit`  
+🚀 Subindo branches para o GitHub  
+1. Enviar a branch para o GitHub  
+`git push origin nome-da-branch`  
+Exemplo:  
+`git push origin feature/cadastro`  
+2. Criar um Pull Request (PR)  
+Vá até o GitHub → clique em "Compare & Pull Request" para mesclar sua branch com a principal.  
+Você pode:  
+- Adicionar descrição  
+- Marcar revisores  
+- Adicionar labels  
+🧪 Branches remotas x locais  
+- Branch local: existe só na sua máquina.  
+- Branch remota: está no GitHub (ou outro repositório remoto).   
+- Para ver todas as branches, inclusive remotas: `git branch -a`    
+🧹 Limpar branches antigas   
+- Deletar branch no GitHub: `git push origin --delete nome-da-branch`  
+- Exemplo: `git push origin --delete fix/menu`    
+📚 Fluxos comuns com branches  
+1. Feature Branch Workflow  
+- main: sempre com código pronto para produção.  
+- dev: para desenvolvimento geral.  
+- feature/*: para cada funcionalidade.  
+2. Git Flow (mais formal)  
+`main  
+develop  
+feature/*  
+release/*  
+hotfix/*`   
+✅ Boas práticas com branches  
+- Use nomes claros e descritivos: feature/login, bugfix/header, hotfix/deploy-crash.     
+- Trabalhe com Pull Requests para facilitar a revisão de código.    
+- Sempre atualize a main antes de mesclar (merge).   
+- Delete branches que não são mais usadas.  
+👨‍💻 Exemplo prático completo:  
+Comece na branch principal  
+`git checkout main`  
+`git pull`  
+Crie uma nova funcionalidade  
+`git checkout -b feature/formulario`  
+...faça alterações no código...  
+`git add .`  
+`git commit -m "feat: cria formulário de cadastro"`  
+Envie para o GitHub  
+`git push origin feature/formulario`  
+No GitHub, crie um Pull Request  
+Após aprovação:  
+`git checkout main`    
+`git pull`    
+`git merge feature/formulario`  
+`git push`  
+Delete a branch local e remota  
+`git branch -d feature/formulario`  
+`git push origin --delete feature/formulario`  
 
-
-Basta editar, salvar e depois:
-
-git add .
-git commit
-
-🚀 Subindo branches para o GitHub
-1. Enviar a branch para o GitHub
-git push origin nome-da-branch
-
-
-Exemplo:
-
-git push origin feature/cadastro
-
-2. Criar um Pull Request (PR)
-
-Vá até o GitHub → clique em "Compare & Pull Request" para mesclar sua branch com a principal.
-
-Você pode:
-
-Adicionar descrição
-
-Marcar revisores
-
-Adicionar labels
-
-🧪 Branches remotas x locais
-
-Branch local: existe só na sua máquina.
-
-Branch remota: está no GitHub (ou outro repositório remoto).
-
-Para ver todas as branches, inclusive remotas:
-
-git branch -a
-
-🧹 Limpar branches antigas
-Deletar branch no GitHub:
-git push origin --delete nome-da-branch
-
-
-Exemplo:
-
-git push origin --delete fix/menu
-
-📚 Fluxos comuns com branches
-1. Feature Branch Workflow
-
-main: sempre com código pronto para produção.
-
-dev: para desenvolvimento geral.
-
-feature/*: para cada funcionalidade.
-
-2. Git Flow (mais formal)
-
-main
-
-develop
-
-feature/*
-
-release/*
-
-hotfix/*
-
-✅ Boas práticas com branches
-
-Use nomes claros e descritivos: feature/login, bugfix/header, hotfix/deploy-crash.
-
-Trabalhe com Pull Requests para facilitar a revisão de código.
-
-Sempre atualize a main antes de mesclar (merge).
-
-Delete branches que não são mais usadas.
-
-👨‍💻 Exemplo prático completo:
-# Comece na branch principal
-git checkout main
-git pull
-
-# Crie uma nova funcionalidade
-git checkout -b feature/formulario
-# ...faça alterações no código...
-git add .
-git commit -m "feat: cria formulário de cadastro"
-
-# Envie para o GitHub
-git push origin feature/formulario
-
-# No GitHub, crie um Pull Request
-# Após aprovação:
-git checkout main
-git pull
-git merge feature/formulario
-git push
-
-# Delete a branch local e remota
-git branch -d feature/formulario
-git push origin --delete feature/formulario
-
+---
 
 COMANDOS ÚTEIS 
 `echo "#commit-1-branch-main" > commit-1-main.txt`
@@ -1380,18 +1279,44 @@ Você tem:
 Você está na branch feature. Agora você faz um novo commit (ex: D):    
 `git add .`   
 `git commit -m "Novo recurso"`   
-O Git faz isso:    
-A -- B -- C  (main)   
-           \   
-            D  (HEAD -> feature)    
+O Git faz isso:      
+A -- B -- C  (main)     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D  (HEAD -> feature)       
               
-O que aconteceu:    
-- O commit D foi criado.   
-- A branch feature foi atualizada para apontar para D.   
-- A branch main continua parada no commit C.
+O que aconteceu:      
+- O commit D foi criado.     
+- A branch feature foi atualizada para apontar para D.      
+- A branch main continua parada no commit C.   
 - O ponteiro HEAD (que sempre aponta para a branch atual) acompanha a feature.   
 
-`git restore` para recuperar arquivos individuais
+`git checkout main`        # trocar para a branch main no seu repositório Git   
+`git switch main`          # focado apenas em trocar de branch - comando mais claro e atual   
+
+Aplicar as mudanças feitas em teste na main   
+Certifique-se de estar na branch main   
+`git merge teste`        # Pega todas as mudanças da branch teste e aplica na branch main.
+Se não houver conflitos, o Git cria um novo commit de merge automaticamente.
+Se houver conflitos, o Git vai avisar, e você precisará resolvê-los manualmente.
+
+Exluir a branch teste
+`git branch`                            # Checar as braches existentes
+`git branch -d nome-da-branch`	        # Deleta a branch local (se ela já foi mesclada).
+`git branch`                            # Checar se a branch foi pro saco
+
+
+
+`git restore`                           # para recuperar arquivos individuais
+`git branch -v`                         # Mostra o hash abreviado do último commit e a mensagem desse commit em cada branch.
+                                        # `*` → indica a branch atual (a que você está no momento).
+`git branch -v`                         # Mostra ainda mais detalhes.
+`git branch`	                        # Lista todas as branches locais e indica a atual com *.
+`git branch nome-da-branch`	        # Cria uma nova branch com o nome especificado.
+`git branch -d nome-da-branch`	        # Deleta a branch local (se ela já foi mesclada).
+`git branch -D nome-da-branch`	        # Força a exclusão da branch, mesmo sem merge.
+`git branch -m novo-nome`	        # Renomeia a branch atual para novo-nome.
+`git branch -a`	                        # Lista todas as branches, locais e remotas.
+
 
 
 </details>  
@@ -1400,7 +1325,7 @@ O que aconteceu:
 parei aqui
 
 <!-- 
-
+        Cria espaços vazios                     &nbsp;
         Negrito	                                Ctrl + B	
         Itálico	                                Ctrl + I	
         Riscado	                                Alt + Shift + 5	
