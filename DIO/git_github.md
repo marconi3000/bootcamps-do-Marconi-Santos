@@ -1670,6 +1670,8 @@ Esse comando mescla a nova_branch ao master.
 
 <details><summary>Setas e Símbolos Diversos</summary> 
 
+        WINDOWS + . PARA ABRIR TODOS OS EMOJI
+        
         Um conjunto diverso de símbolos e setas com seus shortcodes:
 
         :one: → 1️⃣
