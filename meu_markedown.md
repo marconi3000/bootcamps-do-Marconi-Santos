@@ -55,11 +55,11 @@ Ordenada: números com ponto (1., 2.)
 2. Segundo
 
 4. Links e Imagens   
-Link: \[texto\]\(URL\)    
-\[GitHub\]\(https://github.com)      
+    Link: \[texto\]\(URL\)    
+    \[GitHub\]\(https://github.com)      
      
-Imagem: \!\[alt text\]\(URL_da_imagem\)     
-\!\[Logo GitHub\]\(https://github.com/logo.png/)     
+    Imagem: \!\[alt text\]\(URL_da_imagem\)     
+    \!\[Logo GitHub\]\(https://github.com/logo.png/)     
     
 6. Código    
 Inline: use crases simples \`código\` <br>      
