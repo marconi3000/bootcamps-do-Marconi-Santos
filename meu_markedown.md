@@ -130,130 +130,140 @@ A forma mais simples e direta é colocar uma barra invertida \ antes do caracter
 `  crase (backtick)  
 *  asterisco    
 _  underscore (sublinhado)   
-/{ }/ chaves    
-/[ ]/ colchetes   
-/( )/ parênteses    
-#  cerquilha (hash)   
-+  sinal de adição    
--  hífen ou marcador de lista   
-.  ponto    
-!  exclamação    
-|  pipe (|) — especialmente útil em tabelas      
+/{ } chaves    
+/[ ] colchetes   
+/( ) parênteses    
+/#  cerquilha (hash)   
+/+  sinal de adição    
+/-  hífen ou marcador de lista   
+/.  ponto    
+/!  exclamação    
+/|  pipe (|) — especialmente útil em tabelas      
 
 14. Emon=ji      
-expressões Faciais e Sentimentos   
-:smile: → 😄       
-:laughing: → 😆       
-:blush: → 😊       
-:smiley: → 😃       
-:relaxed: → ☺️       
-:heart_eyes: → 😍       
-:scream: → 😱       
-:sob: → 😭       
+    expressões Faciais e Sentimentos   
+    ```:smile: → 😄       
+    :laughing: → 😆       
+    :blush: → 😊       
+    :smiley: → 😃       
+    :relaxed: → ☺️       
+    :heart_eyes: → 😍       
+    :scream: → 😱       
+    :sob: → 😭       
+    ```   
+    Corações e Símbolos Românticos       
+    ```:heart: → ❤️       
+    :broken_heart: → 💔       
+    :two_hearts: → 💕       
+    ```
+    Reações e Objetos       
+    ```:tada: → 🎉       
+    :sparkles: → ✨       
+    :thumbsup: ou :+1: → 👍       
+    :thumbsdown: ou :-1: → 👎       
+    :fire: → 🔥       
+    :poop: → 💩       
+    ```   
+    Setas e Gestos       
+    ```:point_up: → ☝️       
+    :point_down: → 👇       
+    :point_left: → 👈       
+    :point_right: → 👉       
+    :clap: → 👏       
+    :pray: → 🙏       
+    ```   
+    Animais e Natureza       
+    ```:dog2: → 🐕       
+    :cat2: → 🐈       
+    :panda_face: → 🐼       
+    :banana: → 🍌       
+    :corn: → 🌽       
+    ```   
+    Objetos e Dispositivos       
+    ```:computer: → 💻       
+    :iphone: → 📱              
+    :tv: → 📺       
+    :camera: → 📷       
+    :gift: → 🎁       
+    ```  
+    Emojis Especiais (Custom Emotes do GitHub)       
+    Estes emojis são exclusivos do GitHub e geralmente aparecem como imagens estilizadas:       
+    `:bowtie:` →  :bowtie:  → 👔 (laço)       
+    `:octocat:` →  :octocat:  → (mascote Octocat)              
+    `:shipit:` →  :shipit:  → (um gato de navio)       
+    `:trollface:` →  :trollface:  → (trollface)       
+     `:neckbeard:` →  :neckbeard:       
+    `:feelsgood:` →  :feelsgood:       
+    `:finnadie:` →  :finnadie:       
+    `:goberserk:` →  :goberserk:       
+    `:godmode:` →  :godmode:       
+    `:hurtrealbad:` →  :hurtrealbad:       
+    `:rage1:` →  :rage1:       
+    `:rage2:` →  :rage2:       
+    `:rage3:` →  :rage3:       
+    `:rage4:` →  :rage4:       
+    `:suspect:` →  :suspect:              
+    são outros exemplos dessas custom emojis no GitHub              
        
-Corações e Símbolos Românticos       
-:heart: → ❤️       
-:broken_heart: → 💔       
-:two_hearts: → 💕       
-
-Reações e Objetos       
-:tada: → 🎉       
-:sparkles: → ✨       
-:thumbsup: ou :+1: → 👍       
-:thumbsdown: ou :-1: → 👎       
-:fire: → 🔥       
-:poop: → 💩       
-       
-Setas e Gestos       
-:point_up: → ☝️       
-:point_down: → 👇       
-:point_left: → 👈       
-:point_right: → 👉       
-:clap: → 👏       
-:pray: → 🙏       
-       
-Animais e Natureza       
-:dog2: → 🐕       
-:cat2: → 🐈       
-:panda_face: → 🐼       
-:banana: → 🍌       
-:corn: → 🌽       
-       
-Objetos e Dispositivos       
-:computer: → 💻       
-:iphone: → 📱              
-:tv: → 📺       
-:camera: → 📷       
-:gift: → 🎁       
-       
-Emojis Especiais (Custom Emotes do GitHub)       
-Estes emojis são exclusivos do GitHub e geralmente aparecem como imagens estilizadas:       
-:bowtie: → 👔 (laço)       
-:octocat: → (mascote Octocat)              
-:shipit: → (um gato de navio)       
-:trollface: → (trollface)       
-:neckbeard:, :feelsgood:, :finnadie:, :goberserk:, :godmode:, :hurtrealbad:,       
-:rage1:, :rage2:, :rage3:, :rage4:, :suspect:       
-são outros exemplos dessas custom emojis no GitHub       
-       
-alguns objetos comuns e seus shortcodes:       
-:bulb: → 💡       
-:hammer: → 🔨       
-:mag: → 🔍       
-:computer: → 💻       
-:iphone: → 📱       
-:headphones: → 🎧              
-:lock: → 🔒       
-:key: → 🗝️       
-:toolbox: → 🧰       
-:wrench: → 🔧       
-:door: → 🚪       
-:file_cabinet: → 🗄️       
-:toilet_paper: → 🧻        
-       
-Itens do Dia a Dia e Presente       
-:school_satchel: → 🎒       
-:mortar_board: → 🎓       
-:fireworks: → 🎆              
-:santa: → 🎅       
-:christmas_tree: → 🎄       
-:gift: → 🎁       
-:bell: → 🔔       
-:tada: → 🎉       
-:crystal_ball: → 🔮       
-:camera: → 📷       
-:tv: → 📺        
-       
-Escrita, Estudo e Ferramentas de Escrita       
-:bookmark_tabs: → 📑       
-:bar_chart: → 📊       
-:chart_with_upwards_trend: → 📈       
-:scroll: → 📜       
-:clipboard: → 📋       
-:calendar: → 📆       
-:file_folder: → 📁       
-:pencil2: → ✏️       
-:books: → 📚       
-:microscope: → 🔬       
-:musical_score: → 🎼       
-:violin: → 🎻       
-:video_game: → 🎮        
-
-Setas e Símbolos Diversos       
-Um conjunto diverso de símbolos e setas com seus shortcodes:       
-:one: → 1️⃣       
-:hash: → #️⃣       
-:arrow_down: → ⬇️       
-:arrow_up: → ⬆️       
-:arrow_right: → ➡️       
-:information_source: → ℹ️       
-:ok: → 🆗       
-:new: → 🆕       
-:zero: → 0️⃣       
-:underage: → 🔞       
-:no_entry_sign: → 🚫       
-:clock1: → 🕐       
-:tm: → ™️       
-:white_check_mark: → ✅       
-:heavy_check_mark: → ✔️       
-:x: → ❌        
+    alguns objetos comuns e seus shortcodes:       
+    ```:bulb: → 💡       
+    :hammer: → 🔨       
+    :mag: → 🔍       
+    :computer: → 💻       
+    :iphone: → 📱       
+    :headphones: → 🎧              
+    :lock: → 🔒       
+    :key: → 🗝️       
+    :toolbox: → 🧰       
+    :wrench: → 🔧       
+    :door: → 🚪       
+    :file_cabinet: → 🗄️       
+    :toilet_paper: → 🧻        
+    ```     
+    Itens do Dia a Dia e Presente       
+    ```:school_satchel: → 🎒       
+    :mortar_board: → 🎓       
+    :fireworks: → 🎆              
+    :santa: → 🎅       
+    :christmas_tree: → 🎄       
+    :gift: → 🎁       
+    :bell: → 🔔       
+    :tada: → 🎉       
+    :crystal_ball: → 🔮       
+    :camera: → 📷       
+    :tv: → 📺          
+    ```     
+    Escrita, Estudo e Ferramentas de Escrita       
+    ```:bookmark_tabs: → 📑       
+    :bar_chart: → 📊       
+    :chart_with_upwards_trend: → 📈       
+    :scroll: → 📜       
+    :clipboard: → 📋       
+    :calendar: → 📆       
+    :file_folder: → 📁       
+    :pencil2: → ✏️       
+    :books: → 📚       
+    :microscope: → 🔬       
+    :musical_score: → 🎼       
+    :violin: → 🎻       
+    :video_game: → 🎮        
+    ```   
+    Setas e Símbolos Diversos       
+    Um conjunto diverso de símbolos e setas com seus shortcodes:       
+    ```:one: → 1️⃣       
+    :hash: → #️⃣       
+    :arrow_down: → ⬇️       
+    :arrow_up: → ⬆️       
+    :arrow_right: → ➡️       
+    :information_source: → ℹ️       
+    :ok: → 🆗       
+    :new: → 🆕       
+    :zero: → 0️⃣       
+    :underage: → 🔞       
+    :no_entry_sign: → 🚫       
+    :clock1: → 🕐       
+    :tm: → ™️       
+    :white_check_mark: → ✅       
+    :heavy_check_mark: → ✔️       
+    :x: → ❌
+    ```      
