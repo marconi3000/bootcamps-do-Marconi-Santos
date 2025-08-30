@@ -110,15 +110,17 @@ Use códigos entre dois pontos, como :smile:
 Você pode incluir diagramas escrevendo código dentro de blocos com a tag \mermaid: <br>
 
 ```mermaid
-graph LR;
-  A --> B;
-
+graph LR
+    A --> B
+```     
 ```mermaid
-graph TD;
-  A-->B;
-  A-->C;
-  B-->D;
-  C-->D;
+graph TD
+    A[Início] --> B{Pergunta}
+    B -->|Sim| C[Executa ação 1]
+    B -->|Não| D[Executa ação 2]
+    C --> E[Fim]
+    D --> E[Fim]
+```
 
 13. Escapar com barra invertida \
 A forma mais simples e direta é colocar uma barra invertida \ antes do caractere que você quer que seja exibido literalmente, e não interpretado como sintaxe Markdown. Isso funciona para todos os seguintes caracteres:
